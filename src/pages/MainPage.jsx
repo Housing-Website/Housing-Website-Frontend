@@ -6,6 +6,7 @@ import banner3 from '../assets/images/banner3.png'
 import arrow from '../assets/images/arrow.png';
 import '../components/common/style/Header.css';
 import './styles/MainPage.css'
+import Footer from '../components/common/Footer'
 
 
 function MainPage() {
@@ -47,6 +48,7 @@ function MainPage() {
         <img src={arrow} alt='arrow img' className="arrow-img" onClick={handleArrowClick} />
       </div>
       <img src={banner3} alt='banner3' />
+      <Footer />
     </div>
   )
 }
