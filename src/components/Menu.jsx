@@ -1,4 +1,3 @@
-import React from "react";
 import { FaPhone } from "react-icons/fa6";
 import { IoClose } from "react-icons/io5";
 import "./Menu.css";
@@ -8,7 +7,7 @@ function Menu({ isVisible, toggleMenu }) {
   return (
     <div className={`menu-container ${isVisible ? "open" : ""}`}>
       <div className="menu-header">
-        <span className="menu-website-name">신광교 클라우드시티 테스트</span>
+        <span className="menu-website-name">신광교 클라우드시티</span>
         <span className="menu-line" />
         <FaPhone className="menu-call-icon" />
         <span className="menu-phone">1533-8389</span>
@@ -37,7 +36,7 @@ function Menu({ isVisible, toggleMenu }) {
         </div>
 
         <div className="menu-item">
-          <span>단지정보12313</span>
+          <span>단지정보242</span>
           <FiPlus />
         </div>
       </div>
