@@ -34,6 +34,16 @@ function Menu({ isVisible, toggleMenu }) {
           <span>단지정보</span>
           <FiPlus />
         </div>
+
+        <div className="menu-item">
+          <span>하하</span>
+          <FiPlus />
+        </div>
+
+        <div className="menu-item">
+          <span>하하22</span>
+          <FiPlus />
+        </div>
       </div>
     </div>
   );
