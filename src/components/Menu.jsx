@@ -36,7 +36,7 @@ function Menu({ isVisible, toggleMenu }) {
         </div>
 
         <div className="menu-item">
-          <span>단지정보12313</span>
+          <span>단지정보242</span>
           <FiPlus />
         </div>
       </div>
