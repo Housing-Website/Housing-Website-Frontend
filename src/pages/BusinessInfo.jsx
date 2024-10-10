@@ -1,11 +1,5 @@
-import React from 'react'
-
 function BusinessInfo() {
-  return (
-    <div>
-      
-    </div>
-  )
+  return <div></div>;
 }
 
-export default BusinessInfo
+export default BusinessInfo;

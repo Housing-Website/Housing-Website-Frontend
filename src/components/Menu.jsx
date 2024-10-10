@@ -1,5 +1,5 @@
 import { FaPhone } from "react-icons/fa6";
-import { Link } from 'react-router-dom';
+import { Link } from "react-router-dom";
 import "./Menu.css";
 
 function Menu() {
@@ -14,7 +14,7 @@ function Menu() {
             <Link to="/business-info">사업정보</Link>
           </li>
           <li>
-            <Link to="/register-interest">관심등록</Link>
+            <Link to="/counsel">상담신청</Link>
           </li>
           <li>
             <Link to="/location">입지환경</Link>
