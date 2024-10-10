@@ -95,3 +95,25 @@
   width: 100%;
   height: auto;
 }
+
+.slick-dots {
+  position: absolute;
+  bottom: 20px;
+  display: flex !important;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.slick-dots li {
+  margin: 0 5px;
+}
+
+.slick-dots li button:before {
+  font-size: 12px;
+  color: white;
+}
+
+.slick-dots li.slick-active button:before {
+  color: white;
+}
