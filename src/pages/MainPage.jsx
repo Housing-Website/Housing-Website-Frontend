@@ -58,11 +58,8 @@ function MainPage() {
       <Slider {...settings}>
         <div className="image-container">
           <div className="overlay">
-            <span className="first-comment">
-              프리미엄 워크스페이스에서 누리는 차별화된 업무 경험
-            </span>
             <span className="second-comment">
-              완벽하게 연결된 차별화 된 라이프스타일을 제공하는
+              프리미엄 워크스페이스에서 누리는 차별화된 업무 경험
             </span>
             <span className="third-comment">“신광교 클라우드시티&quot;</span>
             <button className="contact">문의하기</button>
