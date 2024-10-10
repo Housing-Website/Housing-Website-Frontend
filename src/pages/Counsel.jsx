@@ -69,25 +69,23 @@ function Counsel() {
     }
 
     try {
-      const response = await fetch(
-        `${import.meta.env.VITE_API_URL}/submit-inquiry`,
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
-            name,
-            phone,
-            visitDate,
-            message,
-          }),
-        }
-      );
+      const response = await fetch(`${import.meta.env.VITE_API_URL}/submit`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          name,
+          phone,
+          visitDate,
+          message,
+        }),
+      });
+
+      console.log("Fetch response:", response);
 
       if (response.ok) {
         alert("문의가 성공적으로 등록되었습니다.");
-
         setName("");
         setPhone("");
         setVisitDate(null);
@@ -98,6 +96,7 @@ function Counsel() {
       }
     } catch (error) {
       setError("서버 요청 중 오류가 발생했습니다.");
+      console.error("Error during fetch:", error);
     }
   };
 

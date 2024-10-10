@@ -1,5 +1,11 @@
+
+
 function ComplexInfo() {
-  return <div></div>;
+  return (
+    <div>
+      
+    </div>
+  )
 }
 
-export default ComplexInfo;
+export default ComplexInfo
