@@ -1,5 +1,97 @@
-.banner3 {
-  width: 100%;  
+.custom-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 40px;
+  z-index: 10;
+  color: white;
+  cursor: pointer;
+}
+
+.custom-prev {
+  left: 30px;
+}
+
+.custom-next {
+  right: 30px;
+}
+
+.custom-arrow:hover {
+  color: #f9f9f9;
+}
+
+.image-container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-size: cover;
+  background-position: center;
+}
+
+.overlay {
+  position: absolute;
+  top: 20%;
+  width: 100%;
+  text-align: center;
+  color: white;
+}
+
+.overlay span {
+  display: block;
+  font-family: "Montserrat", sans-serif;
+}
+
+.first-comment {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.second-comment {
+  font-size: 2.5rem;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+}
+
+.third-comment {
+  font-size: 4rem;
+  font-weight: bold;
+  margin-bottom: 2rem;
+}
+
+.contact {
+  padding: 15px 30px;
+  background-color: #5196a6;
+  color: white;
+  border: none;
+  border-radius: 30px;
+  font-size: 1.5rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.contact:hover {
+  background-color: #3a7a8d;
+}
+
+.arrow-img {
+  position: absolute;
+  bottom: 5%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100px;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.arrow-img:hover {
+  transform: translate(-50%, 0) scale(1.1);
+}
+
+.banner-img {
+  width: 100%;
   height: auto;
-  margin: 0; 
 }

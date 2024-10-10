@@ -1,56 +1,98 @@
-import React, {useState} from 'react'
-import Header from '../components/common/Header'
-import banner from '../../src/assets/images/banner.png'
-import banner2 from '../assets/images/banner2.png'
-import banner3 from '../assets/images/banner3.png'
-import arrow from '../assets/images/arrow.png';
-import '../components/common/style/Header.css';
-import './styles/MainPage.css'
-import Footer from '../components/common/Footer'
-
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+import Header from "../components/common/Header";
+import banner from "../../src/assets/images/banner.png";
+import banner2 from "../assets/images/banner2.png";
+import banner3 from "../assets/images/banner3.png";
+import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
+import PropTypes from "prop-types"; // 추가
+import "../components/common/style/Header.css";
+import "./styles/MainPage.css";
+import Footer from "../components/common/Footer";
 
 function MainPage() {
+  const PreviousArrow = (props) => {
+    const { onClick } = props;
+    return (
+      <div className="custom-arrow custom-prev" onClick={onClick}>
+        <IoIosArrowBack />
+      </div>
+    );
+  };
 
-  const [currentBanner, setCurrentBanner] = useState(banner);
+  const NextArrow = (props) => {
+    const { onClick } = props;
+    return (
+      <div className="custom-arrow custom-next" onClick={onClick}>
+        <IoIosArrowForward />
+      </div>
+    );
+  };
 
-  const handleArrowClick = () => {
-    const bannerImg = document.querySelectorAll('.banner-img'); 
+  // PropTypes 추가
+  PreviousArrow.propTypes = {
+    onClick: PropTypes.func,
+  };
 
-    bannerImg.forEach((img) => {
-      img.classList.remove('visible');
-      img.classList.add('hidden');
-    });
+  NextArrow.propTypes = {
+    onClick: PropTypes.func,
+  };
 
-    setTimeout(() => {
-      setCurrentBanner(prevBanner => prevBanner === banner ? banner2 : banner);
-      bannerImg.forEach((img) => {
-        img.classList.remove('hidden');
-        img.classList.add('visible');
-      });
-    }, 500);
+  const settings = {
+    dots: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    autoplay: true,
+    autoplaySpeed: 3000,
+    prevArrow: <PreviousArrow />,
+    nextArrow: <NextArrow />,
+    arrows: true,
   };
 
   return (
     <div>
-     <Header />
-     <div className="image-container">
-        <img 
-          src={currentBanner} 
-          alt='banner img' 
-          className={`banner-img visible`} 
-        />
-        <div className="overlay">
-          <span className='first-comment'>프리미엄 워크스페이스에서 누리는 차별화된 업무 경험</span>
-          <span className='second-comment'>완벽하게 연결된 차별화 된 라이프스타일을 제공하는</span>
-          <span className='third-comment'>“신광교 클라우드시티"</span>
-          <button className='contact'>문의하기</button>
+      <Header />
+      <Slider {...settings}>
+        <div className="image-container">
+          <div className="overlay">
+            <span className="first-comment">
+              프리미엄 워크스페이스에서 누리는 차별화된 업무 경험
+            </span>
+            <span className="second-comment">
+              완벽하게 연결된 차별화 된 라이프스타일을 제공하는
+            </span>
+            <span className="third-comment">“신광교 클라우드시티&quot;</span>
+            <button className="contact">문의하기</button>
+          </div>
+          <img src={banner} alt="banner img" className="banner-img visible" />
         </div>
-        <img src={arrow} alt='arrow img' className="arrow-img" onClick={handleArrowClick} />
-      </div>
-      <img src={banner3} alt='banner3' />
+        <div className="image-container">
+          <div className="overlay">
+            <span className="second-comment">
+              신광교 클라우드시티의 특별한 혜택
+            </span>
+            <span className="third-comment">“최고의 선택&quot;</span>
+            <button className="contact">자세히 알아보기</button>
+          </div>
+          <img src={banner2} alt="banner img" className="banner-img visible" />
+        </div>
+        <div className="image-container">
+          <div className="overlay">
+            <span className="second-comment">
+              차별화된 업무 환경을 만나보세요
+            </span>
+            <span className="third-comment">“비즈니스의 새로운 시대&quot;</span>
+            <button className="contact">문의하기</button>
+          </div>
+          <img src={banner3} alt="banner img" className="banner-img visible" />
+        </div>
+      </Slider>
       <Footer />
     </div>
-  )
+  );
 }
 
-export default MainPage
+export default MainPage;

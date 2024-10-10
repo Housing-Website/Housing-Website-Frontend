@@ -1,67 +1,64 @@
-.menu-container {
-  position: fixed;
-  top: 0;
-  right: 0;
-  width: 590px;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
   height: 100%;
-  background-color: white;
-  color: black;
-  transform: translateX(100%);
-  transition: transform 0.3s ease;
-  z-index: 1000;
 }
 
-.menu-container.open {
-  transform: translateX(0);
-}
-
-.menu-header {
+.navbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 10px 15px;
+  padding: 20px 30px;
+  background-color: #2a2626;
+  color: white;
 }
 
-.menu-website-name {
-  font-size: 25px;
+.navbar-logo {
+  font-size: 26px;
   font-weight: bold;
-  color: #5c4a3d;
-  padding-left: 30px;
+  color: white;
 }
 
-.menu-line {
-  width: 1px;
-  height: 30px;
-  background-color: #d2d2d2;
-  margin: 20px 0;
-}
-
-.menu-phone {
-  font-size: 25px;
-  font-weight: bold;
-  margin: 0;
-}
-
-.menu-close-icon {
-  cursor: pointer;
-  font-size: 20px;
-  margin-right: 30px;
-}
-
-.menu-items {
+.navbar-links ul {
+  list-style: none;
   display: flex;
-  flex-direction: column;
-  margin-top: 60px;
-  margin-left: 50px;
+  gap: 20px;
 }
 
-.menu-item {
+.navbar-links ul li {
+  display: inline-block;
+}
+
+.navbar-links ul li a {
+  text-decoration: none;
+  color: white;
+  font-size: 18px;
+  transition: color 0.3s ease;
+}
+
+.navbar-links ul li a:hover {
+  color: #5196a6;
+}
+
+.navbar-contact {
   display: flex;
   align-items: center;
-  margin-bottom: 50px;
+  font-size: 18px;
+  font-weight: bold;
 }
 
-.menu-item span {
-  margin-right: 400px;
-  cursor: pointer;
+.call-icon {
+  font-size: 25px;
+  margin-right: 10px;
+}
+
+@media (max-width: 768px) {
+  .navbar-links ul {
+    display: none;
+  }
 }
