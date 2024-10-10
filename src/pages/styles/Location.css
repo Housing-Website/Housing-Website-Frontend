@@ -1,0 +1,93 @@
+.location-container{
+  display: flex;
+  flex-direction:column;
+  align-items: center; 
+  text-align: center; 
+  overflow-x: hidden;
+}
+.location-sub-container{
+  display:flex;
+  flex-direction: column;
+  width: 100%;
+  height:auto;
+  background-color:#3D3C3C;
+}
+
+.location-title{
+  color: white;
+  margin-top:30px;
+}
+
+.location-map-container{
+  display:flex;
+  flex-direction:row;
+  text-align: center;
+  align-items: center;
+}
+
+.location-highlight {
+  word-break: keep-all; 
+  font-size: 20px; 
+  font-weight: bold;
+  color: black;
+  line-height: 1.5; 
+  display: block; 
+  margin-right: 50px;
+  animation: slideUp 0.8s ease-in-out forwards;
+}
+.community-img1{
+  display:flex;
+  width: 600px;
+  height: 500px;
+  margin-top:30px;
+  animation: slideUp 0.8s ease-in-out forwards;
+}
+.location-keyword {
+  display: inline-block;
+  opacity: 0;
+  transform: translateY(20px);
+  color: red;
+  font-size: 40px;
+  margin-bottom: 20px;
+  animation: slideUp 0.8s ease-in-out forwards;
+}
+.location-subway-description{
+  animation: slideUp 0.8s ease-in-out forwards;
+  color: #A9A9A9;
+  font-size: 18px; 
+  margin-top: 30px !important; 
+  display: block; 
+}
+
+.community-info {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start; 
+  align-items: center;
+  text-align: center;
+  margin-top:20px;
+  margin-bottom: 30px;
+  align-items: center;
+  text-align:center;
+}
+
+
+/*임시 이미지들 부분*/
+.community-img2, .subimg1, .subimg2 {
+  width: 350px;
+  height: 300px;
+  margin: 0 20px; 
+  opacity: 0;
+  animation: slideUp 0.8s ease-in-out forwards;
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

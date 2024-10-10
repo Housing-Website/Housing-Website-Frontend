@@ -22,6 +22,7 @@ body, .image-container  {
   font-size: 26px;
   font-weight: bold;
   color: white;
+  cursor:pointer;
 }
 
 .navbar-links ul {
@@ -49,13 +50,14 @@ body, .image-container  {
 .navbar-contact {
   display: flex;
   align-items: center;
-  font-size: 18px;
+  font-size: 25px;
   font-weight: bold;
 }
 
 .call-icon {
   font-size: 25px;
   margin-right: 10px;
+  margin-bottom:10px;
 }
 
 @media (max-width: 768px) {

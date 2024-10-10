@@ -1,0 +1,28 @@
+.community-container{
+  display: flex;
+  flex-direction:column;
+  align-items: center; 
+  text-align: center; 
+}
+.community-sub-container{
+  display:flex;
+  flex-direction: column;
+  width:100vw;
+  height:auto;
+  background-color:#3D3C3C;
+}
+.community-title{
+  color: white;
+  margin-top:30px;
+}
+.community-subtitle{
+  font-size: 30px;
+  text-align: left; 
+  margin-top: 10px; 
+  width: 100%;
+}
+.community-img{
+  display:flex;
+  width: auto;
+  height: 500px;
+}
