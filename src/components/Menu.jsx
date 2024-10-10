@@ -5,9 +5,9 @@ import "./Menu.css";
 
 function Menu() {
   const navigate = useNavigate();
-  
+
   const handleMainClick = () => {
-    navigate('/');
+    navigate("/");
   };
 
   return (
