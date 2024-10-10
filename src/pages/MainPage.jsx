@@ -1,7 +1,6 @@
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import Header from "../components/common/Header";
 import banner from "../../src/assets/images/banner.png";
 import banner2 from "../assets/images/banner2.png";
 import banner3 from "../assets/images/banner3.png";
@@ -9,7 +8,6 @@ import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
 import PropTypes from "prop-types"; // 추가
 import "../components/common/style/Header.css";
 import "./styles/MainPage.css";
-import Footer from "../components/common/Footer";
 
 function MainPage() {
   const PreviousArrow = (props) => {
@@ -54,7 +52,6 @@ function MainPage() {
 
   return (
     <div>
-      <Header />
       <Slider {...settings}>
         <div className="image-container">
           <div className="overlay">
@@ -87,7 +84,6 @@ function MainPage() {
           <img src={banner3} alt="banner img" className="banner-img visible" />
         </div>
       </Slider>
-      <Footer />
     </div>
   );
 }
