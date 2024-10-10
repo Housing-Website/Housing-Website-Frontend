@@ -3,7 +3,6 @@ import Header from "./components/common/Header";
 import Footer from "./components/common/Footer";
 import MainPage from "./pages/MainPage";
 import BusinessInfo from "./pages/BusinessInfo";
-
 import Location from "./pages/Location";
 import Community from "./pages/Community";
 import ComplexInfo from "./pages/ComplexInfo";

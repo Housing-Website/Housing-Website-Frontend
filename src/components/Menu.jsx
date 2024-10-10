@@ -1,12 +1,19 @@
 import { FaPhone } from "react-icons/fa6";
 import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import "./Menu.css";
 
 function Menu() {
+  const navigate = useNavigate();
+  
+  const handleMainClick = () => {
+    navigate('/');
+  };
+
   return (
     <header className="navbar">
       <div className="navbar-logo">
-        <span>신광교 클라우드시티</span>
+        <span onClick={handleMainClick}>신광교 클라우드시티</span>
       </div>
       <nav className="navbar-links">
         <ul>

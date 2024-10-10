@@ -8,8 +8,16 @@ import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
 import PropTypes from "prop-types"; // 추가
 import "../components/common/style/Header.css";
 import "./styles/MainPage.css";
+import { useNavigate } from 'react-router-dom';
 
 function MainPage() {
+  
+  const navigate = useNavigate();
+
+  const handleContactClick = () => {
+    navigate('/Counsel');
+  };
+
   const PreviousArrow = (props) => {
     const { onClick } = props;
     return (
@@ -59,7 +67,7 @@ function MainPage() {
               프리미엄 워크스페이스에서 누리는 차별화된 업무 경험
             </span>
             <span className="third-comment">“신광교 클라우드시티&quot;</span>
-            <button className="contact">문의하기</button>
+            <button className="contact" onClick={handleContactClick}>문의하기</button>
           </div>
           <img src={banner} alt="banner img" className="banner-img visible" />
         </div>
@@ -79,7 +87,7 @@ function MainPage() {
               차별화된 업무 환경을 만나보세요
             </span>
             <span className="third-comment">“비즈니스의 새로운 시대&quot;</span>
-            <button className="contact">문의하기</button>
+            <button className="contact" onClick={handleContactClick}>문의하기</button>
           </div>
           <img src={banner3} alt="banner img" className="banner-img visible" />
         </div>
