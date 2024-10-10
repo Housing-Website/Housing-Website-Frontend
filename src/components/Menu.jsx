@@ -1,4 +1,5 @@
 import { FaPhone } from "react-icons/fa6";
+import { Link } from 'react-router-dom';
 import "./Menu.css";
 
 function Menu() {
@@ -7,23 +8,22 @@ function Menu() {
       <div className="navbar-logo">
         <span>신광교 클라우드시티</span>
       </div>
-
       <nav className="navbar-links">
         <ul>
           <li>
-            <a href="#business-info">사업정보</a>
+            <Link to="/business-info">사업정보</Link>
           </li>
           <li>
-            <a href="#register-interest">관심등록</a>
+            <Link to="/register-interest">관심등록</Link>
           </li>
           <li>
-            <a href="#location">입지환경</a>
+            <Link to="/location">입지환경</Link>
           </li>
           <li>
-            <a href="#community">커뮤니티</a>
+            <Link to="/community">커뮤니티</Link>
           </li>
           <li>
-            <a href="#complex-info">단지정보</a>
+            <Link to="/complex-info">단지정보</Link>
           </li>
         </ul>
       </nav>
