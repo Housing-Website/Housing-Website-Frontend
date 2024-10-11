@@ -5,8 +5,9 @@
 }
 
 html,
-body, .image-container  {
+body, .image-container {
   height: 100%;
+  width: 100%;
 }
 
 .navbar {
@@ -16,13 +17,14 @@ body, .image-container  {
   padding: 20px 30px;
   background-color: #2a2626;
   color: white;
+  position: relative; /* 위치 조정 */
 }
 
 .navbar-logo {
   font-size: 26px;
   font-weight: bold;
   color: white;
-  cursor:pointer;
+  cursor: pointer;
 }
 
 .navbar-links ul {
@@ -57,11 +59,36 @@ body, .image-container  {
 .call-icon {
   font-size: 25px;
   margin-right: 10px;
-  margin-bottom:10px;
+  margin-bottom: 10px;
+}
+
+.hamburger-icon {
+  display: none; /* 기본적으로 숨김 */
+  font-size: 25px;
+  cursor: pointer;
 }
 
 @media (max-width: 768px) {
+  .navbar-links {
+    display: none; 
+    position: absolute; 
+    top: 70px; 
+    left: 0;
+    right: 0;
+    background-color: #2a2626; 
+    flex-direction: column; 
+  }
+
+  .navbar-links.active {
+    display: flex; /* active 클래스가 추가되면 보이도록 설정 */
+  }
+
   .navbar-links ul {
-    display: none;
+    flex-direction: column; /* 세로 정렬 */
+    gap: 10px; /* 간격 조정 */
+  }
+
+  .hamburger-icon {
+    display: block; /* 모바일에서만 보이도록 설정 */
   }
 }
