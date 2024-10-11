@@ -113,9 +113,12 @@
 /* 반응형 */
 @media (max-width: 1024px) {
   .business-subtitle {
-    font-size: 20px; 
+    font-size: 40px; 
   }
-  
+  .business-subtitle-hightlight{
+    font-size:20px;
+    flex-wrap: wrap;
+  }
   .business1-img,
   .business4-img,
   .business5-img,
@@ -139,6 +142,7 @@
   }
   .business-subtitle-hightlight{
     font-size:20px;
+    flex-wrap: wrap;
   }
   .business-section1,
   .business-section2,
