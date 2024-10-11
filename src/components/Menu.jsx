@@ -10,6 +10,10 @@ function Menu() {
     navigate("/");
   };
 
+  const handlePhoneCall = () => {
+    window.location.href = "tel:1533-8389"; // 클릭 시 전화 연결
+  };
+
   return (
     <header className="navbar">
       <div className="navbar-logo">
@@ -35,7 +39,7 @@ function Menu() {
         </ul>
       </nav>
 
-      <div className="navbar-contact">
+      <div className="navbar-contact" onClick={handlePhoneCall}>
         <FaPhone className="call-icon" />
         <span>1533.8389</span>
       </div>
