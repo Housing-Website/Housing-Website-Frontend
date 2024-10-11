@@ -10,7 +10,6 @@ import "../components/common/style/Header.css";
 import "./styles/MainPage.css";
 import { useNavigate } from "react-router-dom";
 import Counsel from "./Counsel";
-import { BsTelephoneOutboundFill } from "react-icons/bs";
 
 function MainPage() {
   const navigate = useNavigate();
@@ -78,7 +77,6 @@ function MainPage() {
             </span>
             <span className="third-comment">“신광교 클라우드시티&quot;</span>
             <button className="contact" onClick={handlePhoneCall}>
-              <BsTelephoneOutboundFill className="main-phonecall-icon" />
               1533-8389
             </button>
           </div>
