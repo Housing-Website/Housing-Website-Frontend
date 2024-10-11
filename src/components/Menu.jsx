@@ -30,7 +30,7 @@ function Menu() {
             <Link to="/community">커뮤니티</Link>
           </li>
           <li>
-            <Link to="/complex-info">단지정보</Link>
+            <Link to="/apartment-info">단지정보</Link>
           </li>
         </ul>
       </nav>

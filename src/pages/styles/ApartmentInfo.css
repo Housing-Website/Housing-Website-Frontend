@@ -1,0 +1,17 @@
+.apt-container{
+  display: flex;
+  flex-direction:column;
+  align-items: center; 
+  text-align: center; 
+}
+.apt-sub-container{
+  display:flex;
+  flex-direction: column;
+  width:100vw;
+  height:auto;
+  background-color:#3D3C3C;
+}
+.apt-title{
+  color: white;
+  margin-top:30px;
+}
