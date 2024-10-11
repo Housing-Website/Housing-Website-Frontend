@@ -5,7 +5,8 @@
 }
 
 html,
-body, .image-container  {
+body,
+.image-container {
   height: 100%;
 }
 
@@ -22,7 +23,7 @@ body, .image-container  {
   font-size: 26px;
   font-weight: bold;
   color: white;
-  cursor:pointer;
+  cursor: pointer;
 }
 
 .navbar-links ul {
@@ -52,12 +53,13 @@ body, .image-container  {
   align-items: center;
   font-size: 25px;
   font-weight: bold;
+  cursor: pointer;
 }
 
 .call-icon {
   font-size: 25px;
   margin-right: 10px;
-  margin-bottom:10px;
+  margin-bottom: 10px;
 }
 
 @media (max-width: 768px) {
