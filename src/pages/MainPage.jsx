@@ -8,14 +8,18 @@ import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
 import PropTypes from "prop-types"; // 추가
 import "../components/common/style/Header.css";
 import "./styles/MainPage.css";
-import { useNavigate } from 'react-router-dom';
+import { useNavigate } from "react-router-dom";
+import { FaPhone } from "react-icons/fa";
 
 function MainPage() {
-  
   const navigate = useNavigate();
 
   const handleContactClick = () => {
-    navigate('/Counsel');
+    navigate("/Counsel");
+  };
+
+  const handlePhoneCall = () => {
+    window.location.href = "tel:1533-8389";
   };
 
   const PreviousArrow = (props) => {
@@ -67,7 +71,10 @@ function MainPage() {
               프리미엄 워크스페이스에서 누리는 차별화된 업무 경험
             </span>
             <span className="third-comment">“신광교 클라우드시티&quot;</span>
-            <button className="contact" onClick={handleContactClick}>문의하기</button>
+            <button className="contact" onClick={handlePhoneCall}>
+              <FaPhone style={{ marginRight: "8px" }} />
+              1533-8389
+            </button>
           </div>
           <img src={banner} alt="banner img" className="banner-img visible" />
         </div>
@@ -87,7 +94,9 @@ function MainPage() {
               차별화된 업무 환경을 만나보세요
             </span>
             <span className="third-comment">“비즈니스의 새로운 시대&quot;</span>
-            <button className="contact" onClick={handleContactClick}>문의하기</button>
+            <button className="contact" onClick={handleContactClick}>
+              문의하기
+            </button>
           </div>
           <img src={banner3} alt="banner img" className="banner-img visible" />
         </div>
