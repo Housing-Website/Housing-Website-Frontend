@@ -1,28 +1,30 @@
-.location-container{
+.location-container {
   display: flex;
-  flex-direction:column;
+  flex-direction: column;
   align-items: center; 
   text-align: center; 
   overflow-x: hidden;
 }
-.location-sub-container{
-  display:flex;
+
+.location-sub-container {
+  display: flex;
   flex-direction: column;
   width: 100%;
-  height:auto;
-  background-color:#3D3C3C;
+  height: auto;
+  background-color: #3D3C3C;
 }
 
-.location-title{
+.location-title {
   color: white;
-  margin-top:30px;
+  margin-top: 30px;
 }
 
-.location-map-container{
-  display:flex;
-  flex-direction:row;
+.location-map-container {
+  display: flex;
+  flex-direction: row;
   text-align: center;
   align-items: center;
+  justify-content: center; /* 중앙 정렬 */
 }
 
 .location-highlight {
@@ -35,13 +37,15 @@
   margin-right: 50px;
   animation: slideUp 0.8s ease-in-out forwards;
 }
-.community-img1{
-  display:flex;
+
+.community-img1 {
+  display: flex;
   width: 600px;
   height: 500px;
-  margin-top:30px;
+  margin-top: 30px;
   animation: slideUp 0.8s ease-in-out forwards;
 }
+
 .location-keyword {
   display: inline-block;
   opacity: 0;
@@ -51,7 +55,8 @@
   margin-bottom: 20px;
   animation: slideUp 0.8s ease-in-out forwards;
 }
-.location-subway-description{
+
+.location-subway-description {
   animation: slideUp 0.8s ease-in-out forwards;
   color: #A9A9A9;
   font-size: 18px; 
@@ -65,14 +70,11 @@
   justify-content: flex-start; 
   align-items: center;
   text-align: center;
-  margin-top:20px;
+  margin-top: 20px;
   margin-bottom: 30px;
-  align-items: center;
-  text-align:center;
 }
 
-
-/*임시 이미지들 부분*/
+/* 임시 이미지들 부분 */
 .community-img2, .subimg1, .subimg2 {
   width: 350px;
   height: 300px;
@@ -89,5 +91,74 @@
   to {
     opacity: 1;
     transform: translateY(0);
+  }
+}
+
+/* 반응형 css부분 */
+@media (max-width: 1024px) {
+  .location-map-container {
+    flex-direction: column; 
+  }
+
+  .community-info {
+    flex-direction: column; 
+    align-items: center;
+  }
+
+  .community-img1 {
+    width: 90%; 
+    height: auto; 
+    max-width: 600px; 
+  }
+
+  .community-img2, .subimg1, .subimg2 {
+    width: 90%; 
+    height: auto; 
+    max-width: 350px; 
+    margin: 10px 0; 
+  }
+
+  .location-keyword {
+    font-size: 35px; 
+    margin-top: 60px;
+  }
+
+  .location-highlight {
+    font-size: 18px; 
+    margin-right: 0; 
+  }
+}
+
+@media (max-width: 768px) {
+  .location-map-container {
+    flex-direction: column; 
+  }
+
+  .community-info {
+    flex-direction: column; 
+    align-items: center;
+  }
+
+  .community-img1 {
+    width: 100%; 
+    height: auto; 
+    max-width: 600px; 
+  }
+
+  .community-img2, .subimg1, .subimg2 {
+    width: 100%; 
+    height: auto; 
+    max-width: 350px; 
+    margin: 10px 0; 
+  }
+
+  .location-keyword {
+    font-size: 30px; 
+    margin-top:60px;
+  }
+
+  .location-highlight {
+    font-size: 18px; 
+    margin-right: 0; 
   }
 }
