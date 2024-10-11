@@ -1,7 +1,7 @@
 .footer-container {
   width: 100%;
   max-width: 1440px;
-  height: 150px;
+  height: auto;
   background-color: #2a2626;
   color: #fff;
   display: flex;
@@ -21,7 +21,7 @@
   display: flex;
   flex-direction: column;
   text-align: left;
-  margin-top:20px;
+  margin-top: 20px;
   margin-left: 100px;
 }
 
@@ -30,7 +30,49 @@
   font-weight: bold;
   margin-bottom: 20px;
 }
+
 .footer-infos {
   font-size: 15px;
   margin-bottom: 10px;
+}
+
+/* 반응형 스타일 */
+@media (max-width: 1024px) {
+  .footer-container {
+    flex-direction: column; 
+    align-items: flex-start;
+    height: auto; 
+  }
+
+  .footer-title {
+    font-size: 30px; 
+    margin-left: 0; 
+  }
+
+  .footer-info {
+    margin-left: 0; 
+    margin-top: 10px; 
+  }
+
+  .footer-contact {
+    font-size: 18px; 
+  }
+
+  .footer-infos {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 768px) {
+  .footer-title {
+    font-size: 25px; 
+  }
+
+  .footer-contact {
+    font-size: 16px; 
+  }
+
+  .footer-infos {
+    font-size: 12px; 
+  }
 }
