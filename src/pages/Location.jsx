@@ -1,8 +1,8 @@
 import React from 'react'
 import location1 from "../assets/images/location1.png";
 import location2 from "../assets/images/location2.png";
-import sublocation1 from "../assets/images/sublocation1.png";
-import sublocation2 from "../assets/images/sublocation2.png";
+import location3 from "../assets/images/location3.png";
+import location4 from "../assets/images/location4.png";
 import './styles/Location.css'
 import { FaWalking } from "react-icons/fa";
 
@@ -22,12 +22,12 @@ function Location() {
         <FaWalking />도보 : 흥덕역 15분
       </span>
     </span>
-      <img src={location1} alt='community-img' className='community-img1'/>
+      <img src={location2} alt='community-img' className='community-img1'/>
       </div>
       <div className='community-info'>
-        <img src={location2} alt='community-img' className='community-img2'/>
-        <img src={sublocation1} alt='img1' className='subimg1' />
-        <img src={sublocation2} alt='img2' className='subimg2' />
+        <img src={location1} alt='community-img' className='community-img2'/>
+        <img src={location3} alt='img1' className='subimg1' />
+        <img src={location4} alt='img2' className='subimg2' />
       </div>
     </div>
     
