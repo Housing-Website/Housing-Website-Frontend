@@ -9,7 +9,8 @@ import PropTypes from "prop-types"; // 추가
 import "../components/common/style/Header.css";
 import "./styles/MainPage.css";
 import { useNavigate } from "react-router-dom";
-import { FaPhone } from "react-icons/fa";
+import Counsel from "./Counsel";
+import { BsTelephoneOutboundFill } from "react-icons/bs";
 
 function MainPage() {
   const navigate = useNavigate();
@@ -21,6 +22,10 @@ function MainPage() {
   const handlePhoneCall = () => {
     window.location.href = "tel:1533-8389";
   };
+
+  const handleBusinessInfoClick = () => {
+    navigate("/business-info");
+  }
 
   const PreviousArrow = (props) => {
     const { onClick } = props;
@@ -63,6 +68,7 @@ function MainPage() {
   };
 
   return (
+    <>
     <div>
       <Slider {...settings}>
         <div className="image-container">
@@ -72,7 +78,7 @@ function MainPage() {
             </span>
             <span className="third-comment">“신광교 클라우드시티&quot;</span>
             <button className="contact" onClick={handlePhoneCall}>
-              <FaPhone style={{ marginRight: "8px" }} />
+              <BsTelephoneOutboundFill className="main-phonecall-icon" />
               1533-8389
             </button>
           </div>
@@ -84,7 +90,7 @@ function MainPage() {
               신광교 클라우드시티의 특별한 혜택
             </span>
             <span className="third-comment">“최고의 선택&quot;</span>
-            <button className="contact">자세히 알아보기</button>
+            <button className="contact" onClick={handleBusinessInfoClick}>자세히 알아보기</button>
           </div>
           <img src={banner2} alt="banner img" className="banner-img visible" />
         </div>
@@ -102,6 +108,8 @@ function MainPage() {
         </div>
       </Slider>
     </div>
+    <Counsel />
+    </>
   );
 }
 

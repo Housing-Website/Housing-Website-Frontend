@@ -71,7 +71,10 @@
 .contact:hover {
   background-color: #3a7a8d;
 }
-
+.main-phonecall-icon{
+  margin-top:2px;
+  margin-right:3px;
+}
 .arrow-img {
   position: absolute;
   bottom: 5%;
