@@ -2,77 +2,105 @@
   width: 100%;
   max-width: 100%;
   height: auto;
-  background-color: #2a2626;
+  margin-top: 5%;
+  background-color: white;
   color: #fff;
   display: flex;
   flex-direction: row;
-  align-items: center;
-  padding: 20px;
+  align-items: flex-start;
+  padding: 30px;
   box-sizing: border-box;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  border-top: 1px solid black;
 }
 
-.footer-title {
-  font-size: 40px;
-  font-weight: bold;
-  margin-left: 30px;
+.footer-logo {
+  margin-top: 3%;
+  width: 180px;
+  margin-left: 5%;
+  height: auto;
 }
 
 .footer-info {
   display: flex;
   flex-direction: column;
+  margin-right: 30%;
   text-align: left;
-  margin-top: 20px;
-  margin-left: 100px;
-}
-
-.footer-contact {
-  font-size: 20px;
-  font-weight: bold;
-  margin-bottom: 20px;
 }
 
 .footer-infos {
-  font-size: 15px;
-  margin-bottom: 10px;
+  font-size: 16px;
+
+  color: black;
 }
 
-/* 반응형 스타일 */
+.footer-company-info {
+  margin-top: 5px;
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+}
+
+.footer-company-infos {
+  font-size: 14px;
+  margin-bottom: 5px;
+  color: #ccc;
+}
+
+.footer-company-infos-login {
+  font-size: 14px;
+  margin-bottom: 5px;
+  color: #ccc;
+  margin-left: 10%;
+}
+
+.footer-disclaimer {
+  font-size: 12px;
+  color: #999;
+  margin-top: 10px;
+  line-height: 1.5;
+}
+
 @media (max-width: 1024px) {
   .footer-container {
     flex-direction: column;
     align-items: flex-start;
-    height: auto;
   }
 
   .footer-title {
-    font-size: 30px;
-    margin-left: 0;
+    font-size: 28px;
   }
 
-  .footer-info {
-    margin-left: 0;
-    margin-top: 10px;
+  .footer-contact {
+    font-size: 20px;
+  }
+
+  .footer-infos,
+  .footer-company-infos {
+    font-size: 14px;
+  }
+
+  .footer-disclaimer {
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 768px) {
+  .footer-title {
+    font-size: 24px;
   }
 
   .footer-contact {
     font-size: 18px;
   }
 
-  .footer-infos {
-    font-size: 14px;
-  }
-}
-
-@media (max-width: 768px) {
-  .footer-title {
-    font-size: 25px;
-  }
-
-  .footer-contact {
-    font-size: 16px;
-  }
-
-  .footer-infos {
+  .footer-infos,
+  .footer-company-infos {
     font-size: 12px;
+  }
+
+  .footer-disclaimer {
+    font-size: 10px;
   }
 }
