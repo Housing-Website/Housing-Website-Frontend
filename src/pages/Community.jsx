@@ -7,7 +7,6 @@ function Community() {
       <div className="community-sub-container">
         <h2 className="community-title">커뮤니티</h2>
       </div>
-
       <div className="community-info">
         <img src={community1} alt="community-img" className="community-img" />
       </div>
