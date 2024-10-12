@@ -119,7 +119,7 @@ function MainPage() {
         </Slider>
       </div>
 
-      {/* 카카오톡 채널톡 버튼 */}
+    
       <div className="kakao-channel-btn">
         <img
           src={kakaochanneltalk}

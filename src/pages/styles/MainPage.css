@@ -117,9 +117,9 @@
 }
 
 .kakao-channel-btn {
-  position: fixed; /* 스크롤 시에도 고정 */
-  bottom: 40px; /* 하단에서 20px 위 */
-  right: 40px; /* 우측에서 20px 왼쪽 */
+  position: fixed; 
+  bottom: 40px; 
+  right: 40px; 
   z-index: 1000;
   transition: transform 0.3s ease-in-out;
 }

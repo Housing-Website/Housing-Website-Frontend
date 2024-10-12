@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import "./Menu.css";
 import CloudCityLogo from "../assets/images/CloudCityLogo.jpeg";
-import kakaochanneltalk from "../assets/images/kakaochanneltalk.png";
+
 
 function Menu() {
   const navigate = useNavigate();
