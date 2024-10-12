@@ -15,17 +15,15 @@ body,
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 25px 20px;
-  background-color: #2a2626;
-  color: white;
+  padding: 12px 20px;
+  background-color: transparent;
+  color: black;
   position: relative;
 }
 
 .navbar-logo {
-  font-size: 26px;
-  font-weight: bold;
-  color: white;
-  cursor: pointer;
+  width: 200px;
+  height: auto;
   cursor: pointer;
 }
 
@@ -47,7 +45,7 @@ body,
 
 .navbar-links ul li a {
   text-decoration: none;
-  color: white;
+  color: black;
   font-size: 17px;
   transition: color 0.3s ease;
 }
@@ -68,12 +66,14 @@ body,
   font-size: 25px;
   margin-right: 15px;
   margin-bottom: 12px;
+  color: black;
 }
 
 .hamburger-icon {
   display: none;
   font-size: 20px;
   cursor: pointer;
+  color: black;
 }
 
 /*테블릿 css*/
