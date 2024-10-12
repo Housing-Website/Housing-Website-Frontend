@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import "./Menu.css";
+import CloudCityLogo from "../assets/images/CloudCityLogo.jpeg"; // 이미지 경로 import
 
 function Menu() {
   const navigate = useNavigate();
@@ -13,7 +14,7 @@ function Menu() {
   };
 
   const handlePhoneCall = () => {
-    window.location.href = "tel:1533-8389"; // 클릭 시 전화 연결
+    window.location.href = "tel:1533-8389";
   };
 
   const toggleMenu = () => {
@@ -22,9 +23,13 @@ function Menu() {
 
   return (
     <header className="navbar">
-      <div className="navbar-logo" onClick={handleMainClick}>
-        신광교 클라우드시티
-      </div>
+      {/* 텍스트 대신 이미지로 로고 변경 */}
+      <img
+        src={CloudCityLogo}
+        alt="신광교 클라우드시티 로고"
+        className="navbar-logo"
+        onClick={handleMainClick}
+      />
       <nav className={`navbar-links ${isOpen ? "active" : ""}`}>
         <ul>
           <li>
