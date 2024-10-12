@@ -4,16 +4,18 @@ import cors from "cors";
 import mysql from "mysql2/promise";
 import session from "express-session";
 import { createRequire } from "module";
-import bcrypt from 'bcrypt';
 
+// CommonJS 모듈인 express-mysql-session을 require로 불러오기
 const require = createRequire(import.meta.url);
-const MySQLStore = require('express-mysql-session')(session);
+const MySQLStore = require('express-mysql-session')(session); // require 사용
 
 // 환경 변수 로드
 dotenv.config();
 
 const app = express();
 const PORT = process.env.PORT || 8800;
+
+const TIMEOUT = 120000;
 
 // MySQL 연결 풀 생성
 const pool = mysql.createPool({
@@ -29,10 +31,10 @@ app.use(express.json());
 
 // MySQL 세션 스토어 옵션 설정
 const sessionStore = new MySQLStore({
-  expiration: 1000 * 60 * 60 * 2, 
-  clearExpired: true,             
-  checkExpirationInterval: 1000 * 60 * 10, 
-  createDatabaseTable: true,    
+  expiration: 1000 * 60 * 60 * 2, // 세션 만료 시간 2시간
+  clearExpired: true,             // 만료된 세션 자동 삭제
+  checkExpirationInterval: 1000 * 60 * 10, // 만료된 세션이 지워지는 빈도 (10분마다)
+  createDatabaseTable: true,       // 세션 테이블이 없으면 자동 생성
 }, pool); // MySQL 연결 풀 전달
 
 // 세션 설정
@@ -66,24 +68,31 @@ async function checkDbConnection() {
 }
 
 checkDbConnection();
-
-// 세션 체크 API
-app.get("/session-check", (req, res) => {
-  if (req.session.user) {
-    return res.status(200).json({ message: "로그인 되어 있습니다." });
-  } else {
-    return res.status(401).json({ message: "로그인 되어 있지 않습니다." });
-  }
-});
-
-// 문의 조회 API
 app.get("/inquiries", async (req, res) => {
   try {
-    const [rows] = await pool.execute(`SELECT name, phone, visit_date, message FROM counsel_inquiries`);
+
+    const [rows] = await pool.execute(`SELECT id, name, phone, visit_date, message FROM counsel_inquiries`);
     res.status(200).json(rows); 
   } catch (error) {
     console.error("데이터 조회 중 오류 발생:", error);
     res.status(500).json({ error: "데이터 조회 중 오류가 발생했습니다." });
+  }
+});
+
+app.delete("/inquiries/:id", async (req, res) => {
+  const { id } = req.params; 
+
+  try {
+    const [result] = await pool.execute(`DELETE FROM counsel_inquiries WHERE id = ?`, [id]);
+
+    if (result.affectedRows > 0) {
+      res.status(200).json({ message: "문의가 성공적으로 삭제되었습니다." });
+    } else {
+      res.status(404).json({ message: "해당 ID의 데이터를 찾을 수 없습니다." });
+    }
+  } catch (error) {
+    console.error("데이터 삭제 중 오류 발생:", error);
+    res.status(500).json({ error: "데이터 삭제 중 오류가 발생했습니다." });
   }
 });
 
@@ -105,26 +114,19 @@ app.post("/submit", async (req, res) => {
   }
 });
 
-// 로그인 API
+
 app.post("/login", async (req, res) => {
   const { username, password } = req.body;
 
   try {
     const [rows] = await pool.execute(
-      `SELECT * FROM admin_login WHERE username = ?`,
-      [username]
+      `SELECT * FROM admin_login WHERE username = ? AND password = ?`,
+      [username, password]
     );
 
     if (rows.length > 0) {
-      const user = rows[0];
-      const match = await bcrypt.compare(password, user.password); // 비밀번호 비교
-
-      if (match) {
-        req.session.user = { username }; // 로그인 시 세션에 사용자 정보 저장
-        res.status(200).json({ message: "로그인 성공" });
-      } else {
-        res.status(401).json({ message: "아이디 또는 비밀번호가 잘못되었습니다." });
-      }
+      req.session.user = { username }; // 로그인 시 세션에 사용자 정보 저장
+      res.status(200).json({ message: "로그인 성공" });
     } else {
       res.status(401).json({ message: "아이디 또는 비밀번호가 잘못되었습니다." });
     }
@@ -156,5 +158,4 @@ const server = app.listen(PORT, () => {
 });
 
 // 타임아웃 설정
-const TIMEOUT = 120000;
 server.setTimeout(TIMEOUT);
