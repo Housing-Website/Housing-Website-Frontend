@@ -7,6 +7,7 @@ import Location from "./pages/Location";
 import Community from "./pages/Community";
 import Counsel from "./pages/Counsel";
 import ApartmentInfo from "./pages/ApartmentInfo";
+import LoginPage from "./pages/LoginPage";
 
 function App() {
   return (
@@ -14,11 +15,12 @@ function App() {
       <Header />
       <Routes>
         <Route index path="/" element={<MainPage />} />
-        <Route path="/business-info" element={<BusinessInfo />} />
-        <Route path="/Counsel" element={<Counsel />} />
-        <Route path="/location" element={<Location />} />
-        <Route path="/community" element={<Community />} />
-        <Route path="/apartment-info" element={<ApartmentInfo />} />
+        <Route path="/사업정보" element={<BusinessInfo />} />
+        <Route path="/상담신청" element={<Counsel />} />
+        <Route path="/입지환경" element={<Location />} />
+        <Route path="/커뮤니티" element={<Community />} />
+        <Route path="/단지정보" element={<ApartmentInfo />} />
+        <Route path="/로그인페이지" element={<LoginPage />} />
       </Routes>
       <Footer />
     </BrowserRouter>
