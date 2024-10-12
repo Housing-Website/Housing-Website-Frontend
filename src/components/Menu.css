@@ -52,6 +52,7 @@ body,
 
 .navbar-links ul li a:hover {
   color: #5196a6;
+  font-weight: bold;
 }
 
 .navbar-contact {

@@ -11,7 +11,7 @@
   flex-direction: column;
   width: 100%;
   height: auto;
-  background-color: #3D3C3C;
+  background-color: #48D1CC;
 }
 
 .location-title {
@@ -24,7 +24,7 @@
   flex-direction: row;
   text-align: center;
   align-items: center;
-  justify-content: center; /* 중앙 정렬 */
+  justify-content: center; 
 }
 
 .location-highlight {
@@ -74,9 +74,8 @@
   margin-bottom: 30px;
 }
 
-/* 임시 이미지들 부분 */
-.community-img2, .subimg1, .subimg2 {
-  width: 350px;
+.community-img2, .community-img3, .community-img4 {
+  width: 450px;
   height: 300px;
   margin: 0 20px; 
   opacity: 0;
@@ -111,8 +110,8 @@
     max-width: 600px; 
   }
 
-  .community-img2, .subimg1, .subimg2 {
-    width: 90%; 
+  .community-img2, .community-img3, .community-img4{
+    width: 100%; 
     height: auto; 
     max-width: 350px; 
     margin: 10px 0; 
@@ -145,8 +144,8 @@
     max-width: 600px; 
   }
 
-  .community-img2, .subimg1, .subimg2 {
-    width: 100%; 
+  .community-img2, .community-img3, .community-img4 {
+    width: 90%; 
     height: auto; 
     max-width: 350px; 
     margin: 10px 0; 

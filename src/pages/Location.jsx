@@ -29,9 +29,9 @@ function Location() {
         <img src={location2} alt="community-img" className="community-img1" />
       </div>
       <div className="community-info">
-        <img src={location1} alt="community-img" className="community-img2" />
-        <img src={location3} alt="img1" className="subimg1" />
-        <img src={location4} alt="img2" className="subimg2" />
+        <img src={location1} alt="community-img2" className="community-img2" />
+        <img src={location3} alt="community-img3" className="community-img3" />
+        <img src={location4} alt="community-img4" className="community-img4" />
       </div>
     </div>
   );
