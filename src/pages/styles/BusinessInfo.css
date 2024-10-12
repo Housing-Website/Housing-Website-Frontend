@@ -10,7 +10,7 @@
   flex-direction: column;
   width: 100vw;
   height: auto;
-  background-color: #3D3C3C;
+  background-color: #48D1CC;
 }
 
 .business-title {
@@ -42,7 +42,7 @@
 
 .business1-img {
   display: flex;
-  width: 600px;
+  width: 800px;
   height: auto;
   margin: 30px auto;
   transition: transform 0.3s ease;
@@ -75,7 +75,7 @@
 
 .business5-img {
   display: flex;
-  width: auto;
+  width: 80%;
   height: auto;
   margin: 50px 20px;
   transition: transform 0.3s ease;

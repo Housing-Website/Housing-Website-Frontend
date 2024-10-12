@@ -1,6 +1,5 @@
 import "./styles/BusinessInfo.css";
 import business1 from "../assets/images/business1.png";
-import business4 from "../assets/images/business4.png";
 import business5 from "../assets/images/business5.png";
 import business2 from "../assets/images/business2.png";
 import business3 from "../assets/images/business3.png";
@@ -21,7 +20,6 @@ function BusinessInfo() {
       </span>
       <div className="business-section1">
         <img src={business1} alt="business1-img" className="business1-img" />
-        <img src={business4} alt="business4-img" className="business4-img" />
       </div>
       <span className="business-section2-title">
         조감도 | 설계개요 | 용도별 면적
