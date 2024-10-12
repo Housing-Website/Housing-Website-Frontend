@@ -69,6 +69,16 @@ async function checkDbConnection() {
 
 checkDbConnection();
 
+app.get("/inquiries", async (req, res) => {
+  try {
+    const [rows] = await pool.execute(`SELECT name, phone, visit_date, message FROM counsel_inquiries`);
+    res.status(200).json(rows); 
+  } catch (error) {
+    console.error("데이터 조회 중 오류 발생:", error);
+    res.status(500).json({ error: "데이터 조회 중 오류가 발생했습니다." });
+  }
+});
+
 // 문의 데이터 등록 API
 app.post("/submit", async (req, res) => {
   const { name, phone, visitDate, message } = req.body;
@@ -87,7 +97,7 @@ app.post("/submit", async (req, res) => {
   }
 });
 
-// 로그인 API
+
 app.post("/login", async (req, res) => {
   const { username, password } = req.body;
 
