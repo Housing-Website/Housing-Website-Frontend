@@ -3,12 +3,10 @@ import express from "express";
 import cors from "cors";
 import mysql from "mysql2/promise";
 
-import os from "os";
-
 dotenv.config();
 
 const app = express();
-const PORT = process.env.PORT;
+const PORT = process.env.PORT || 8800; // 포트 번호 기본값 설정
 
 console.log("DB_PASSWORD:", process.env.DB_PASSWORD);
 console.log("DB_NAME:", process.env.DB_NAME);
@@ -29,6 +27,7 @@ app.use(
 );
 app.use(express.json());
 
+// 날짜 포맷팅 함수
 const formatDate = (date) => {
   const d = new Date(date);
   let month = "" + (d.getMonth() + 1);
@@ -41,6 +40,7 @@ const formatDate = (date) => {
   return [year, month, day].join("-");
 };
 
+// MySQL 연결 확인
 async function checkDbConnection() {
   try {
     const connection = await pool.getConnection();
@@ -53,8 +53,9 @@ async function checkDbConnection() {
 
 checkDbConnection();
 
+// 문의 데이터 등록 API
 app.post("/submit", async (req, res) => {
-  console.log("여기까지들어옴?");
+  console.log("여기까지 들어옴?");
   const { name, phone, visitDate, message } = req.body;
   console.log("Received request:", { name, phone, visitDate, message });
 
@@ -78,13 +79,16 @@ app.post("/submit", async (req, res) => {
   }
 });
 
+// 에러 핸들링 미들웨어
 app.use((err, req, res, next) => {
   console.error("서버 에러:", err);
   res.status(500).send("서버 오류 발생");
 });
 
+// 서버 실행
 const server = app.listen(PORT, () => {
   console.log(`서버 실행 중 http://localhost:${PORT}`);
 });
 
-server.setTimeout(TIMEOUT); // 타임아웃 설정 (예: 2분)
+// 타임아웃 설정
+server.setTimeout(TIMEOUT);

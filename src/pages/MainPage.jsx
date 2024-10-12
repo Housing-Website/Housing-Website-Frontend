@@ -5,7 +5,7 @@ import banner from "../../src/assets/images/banner.png";
 import banner2 from "../assets/images/banner2.png";
 import banner3 from "../assets/images/banner3.png";
 import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
-import PropTypes from "prop-types"; // 추가
+import PropTypes from "prop-types"; 
 import "../components/common/style/Header.css";
 import "./styles/MainPage.css";
 import { useNavigate } from "react-router-dom";
@@ -44,7 +44,7 @@ function MainPage() {
     );
   };
 
-  // PropTypes 추가
+
   PreviousArrow.propTypes = {
     onClick: PropTypes.func,
   };
