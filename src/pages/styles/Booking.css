@@ -19,20 +19,21 @@
   margin-top: 30px;
 }
 
-/*list 보여주는 부분*/
-.booking-list-container{
-  margin-top:20px;
+.booking-list-container {
+  margin-top: 20px;
 }
-.booking-sub-title{
-  font-size:1.5rem;
+
+.booking-sub-title {
+  font-size: 1.5rem;
   font-weight: bold;
 }
+
 .booking-table {
   width: 100%;
-  border-collapse: collapse; 
+  border-collapse: collapse;
   margin-top: 20px;
-  overflow-x: auto; 
-  display: block; 
+  overflow-x: auto;
+  display: block;
 }
 
 .booking-table th,
@@ -52,5 +53,39 @@
 }
 
 .booking-table tr:hover {
-  background-color: #ddd; 
+  background-color: #ddd;
+}
+
+@media (max-width: 768px) {
+  .booking-table th,
+  .booking-table td {
+    padding: 10px;
+  }
+
+  .booking-table {
+    font-size: 0.9rem; 
+  }
+
+  .booking-title {
+    font-size: 1.2rem;
+  }
+
+  .booking-sub-container {
+    padding: 10px; 
+  }
+}
+
+@media (max-width: 480px) {
+  .booking-table th,
+  .booking-table td {
+    padding: 5px; 
+  }
+
+  .booking-table {
+    font-size: 0.8rem;
+  }
+
+  .booking-title {
+    font-size: 1rem;
+  }
 }
