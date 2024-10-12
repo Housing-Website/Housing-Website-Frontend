@@ -15,11 +15,32 @@
   border-top: 1px solid black;
 }
 
+.logo-container {
+  display: flex;
+  flex-direction: column;
+}
+
 .footer-logo {
-  margin-top: 3%;
+  margin-top: 20%;
   width: 180px;
-  margin-left: 5%;
   height: auto;
+  margin-left: 6%;
+}
+
+.footer-login-btn {
+  margin-top: 10%;
+  padding: 10px 20px;
+  background-color: #5196a6;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.footer-login-btn:hover {
+  background-color: #3a7a8d;
 }
 
 .footer-info {
@@ -27,32 +48,22 @@
   flex-direction: column;
   margin-right: 30%;
   text-align: left;
-}
-
-.footer-infos {
-  font-size: 16px;
-
+  font-weight: bold;
+  font-size: 15px;
   color: black;
+  margin-top:30px;
 }
 
 .footer-company-info {
   margin-top: 5px;
   display: flex;
-  flex-direction: column;
-  gap: 1px;
+  flex-direction: column;;
 }
 
 .footer-company-infos {
   font-size: 14px;
   margin-bottom: 5px;
   color: #ccc;
-}
-
-.footer-company-infos-login {
-  font-size: 14px;
-  margin-bottom: 5px;
-  color: #ccc;
-  margin-left: 10%;
 }
 
 .footer-disclaimer {
@@ -64,42 +75,57 @@
 
 @media (max-width: 1024px) {
   .footer-container {
-    flex-direction: column;
-    align-items: flex-start;
+    flex-direction: column; 
+    align-items: center; 
+    padding: 20px; 
   }
 
-  .footer-title {
-    font-size: 28px;
+  .footer-info {
+    margin-right: 0; 
+    margin-bottom: 20px; 
+    text-align: center; 
   }
 
-  .footer-contact {
-    font-size: 20px;
+  .footer-login-btn {
+    width: 100%; 
+    font-size: 12px; 
+    padding: 10px; 
+    margin: 10px 0; 
   }
 
-  .footer-infos,
-  .footer-company-infos {
-    font-size: 14px;
+  .footer-company-infos{
+    font-size: 12px; 
+    text-align: center; 
   }
 
   .footer-disclaimer {
-    font-size: 12px;
+    font-size: 10px;
+    text-align: center;
+    margin-top: 10px; 
   }
 }
 
+
 @media (max-width: 768px) {
-  .footer-title {
-    font-size: 24px;
+  .footer-container {
+    display: flex;
+    flex-direction: column; 
+    align-items: center; 
   }
-
-  .footer-contact {
-    font-size: 18px;
+  
+  .footer-logo {
+    width: 100px;
+    margin-bottom: 10px; 
   }
-
-  .footer-infos,
-  .footer-company-infos {
-    font-size: 12px;
+  
+  .footer-info {
+    font-size: 12px; 
   }
-
+  
+  .footer-company-infos{
+    font-size: 12px; 
+  }
+  
   .footer-disclaimer {
     font-size: 10px;
   }

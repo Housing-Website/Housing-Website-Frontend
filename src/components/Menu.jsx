@@ -38,19 +38,19 @@ function Menu() {
       <nav className="navbar-links">
         <ul>
           <li>
-            <Link to="/business-info" onClick={closeMenu}>사업정보</Link>
+            <Link to="/사업정보" onClick={closeMenu}>사업정보</Link>
           </li>
           <li>
-            <Link to="/counsel" onClick={closeMenu}>상담신청</Link>
+            <Link to="/상담신청" onClick={closeMenu}>상담신청</Link>
           </li>
           <li>
-            <Link to="/location" onClick={closeMenu}>입지환경</Link>
+            <Link to="/입지환경" onClick={closeMenu}>입지환경</Link>
           </li>
           <li>
-            <Link to="/community" onClick={closeMenu}>커뮤니티</Link>
+            <Link to="/커뮤니티" onClick={closeMenu}>커뮤니티</Link>
           </li>
           <li>
-            <Link to="/apartment-info" onClick={closeMenu}>단지정보</Link>
+            <Link to="/단지정보" onClick={closeMenu}>단지정보</Link>
           </li>
         </ul>
       </nav>
@@ -67,19 +67,19 @@ function Menu() {
         </div>
         <div className="menu-items">
           <div className="menu-item">
-            <span><Link to="/business-info" onClick={closeMenu}>사업정보</Link></span>
+            <span><Link to="/사업정보" onClick={closeMenu}>사업정보</Link></span>
           </div>
           <div className="menu-item">
-            <span><Link to="/counsel" onClick={closeMenu}>상담신청</Link></span>
+            <span><Link to="/상담신청" onClick={closeMenu}>상담신청</Link></span>
           </div>
           <div className="menu-item">
-            <span><Link to="/location" onClick={closeMenu}>입지환경</Link></span>
+            <span><Link to="/입지환경" onClick={closeMenu}>입지환경</Link></span>
           </div>
           <div className="menu-item">
-            <span><Link to="/community" onClick={closeMenu}>커뮤니티</Link></span>
+            <span><Link to="/커뮤니티" onClick={closeMenu}>커뮤니티</Link></span>
           </div>
           <div className="menu-item">
-            <span><Link to="/apartment-info" onClick={closeMenu}>단지정보</Link></span>
+            <span><Link to="/단지정보" onClick={closeMenu}>단지정보</Link></span>
           </div>
         </div>
       </div>
