@@ -8,6 +8,7 @@ import Community from "./pages/Community";
 import Counsel from "./pages/Counsel";
 import ApartmentInfo from "./pages/ApartmentInfo";
 import LoginPage from "./pages/LoginPage";
+import Booking from "./pages/Booking"; 
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
         <Route path="/커뮤니티" element={<Community />} />
         <Route path="/단지정보" element={<ApartmentInfo />} />
         <Route path="/로그인페이지" element={<LoginPage />} />
+        <Route path="/방문기록" element={<Booking />} /> 
       </Routes>
       <Footer />
     </BrowserRouter>

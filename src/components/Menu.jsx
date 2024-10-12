@@ -52,9 +52,6 @@ function Menu() {
           <li>
             <Link to="/단지정보" onClick={closeMenu}>단지정보</Link>
           </li>
-          <li>
-            <Link to="/로그인페이지" onClick={closeMenu}>관리자 로그인</Link>
-          </li>
         </ul>
       </nav>
       <div className="navbar-contact" onClick={handlePhoneCall}>
@@ -83,9 +80,6 @@ function Menu() {
           </div>
           <div className="menu-item">
             <span><Link to="/단지정보" onClick={closeMenu}>단지정보</Link></span>
-          </div>
-          <div className="menu-item">
-            <span><Link to="/로그인페이지" onClick={closeMenu}>관리자 로그인</Link></span>
           </div>
         </div>
       </div>
