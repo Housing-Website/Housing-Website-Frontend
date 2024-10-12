@@ -68,14 +68,31 @@ async function checkDbConnection() {
 }
 
 checkDbConnection();
-
 app.get("/inquiries", async (req, res) => {
   try {
-    const [rows] = await pool.execute(`SELECT name, phone, visit_date, message FROM counsel_inquiries`);
+
+    const [rows] = await pool.execute(`SELECT id, name, phone, visit_date, message FROM counsel_inquiries`);
     res.status(200).json(rows); 
   } catch (error) {
     console.error("데이터 조회 중 오류 발생:", error);
     res.status(500).json({ error: "데이터 조회 중 오류가 발생했습니다." });
+  }
+});
+
+app.delete("/inquiries/:id", async (req, res) => {
+  const { id } = req.params; 
+
+  try {
+    const [result] = await pool.execute(`DELETE FROM counsel_inquiries WHERE id = ?`, [id]);
+
+    if (result.affectedRows > 0) {
+      res.status(200).json({ message: "문의가 성공적으로 삭제되었습니다." });
+    } else {
+      res.status(404).json({ message: "해당 ID의 데이터를 찾을 수 없습니다." });
+    }
+  } catch (error) {
+    console.error("데이터 삭제 중 오류 발생:", error);
+    res.status(500).json({ error: "데이터 삭제 중 오류가 발생했습니다." });
   }
 });
 
