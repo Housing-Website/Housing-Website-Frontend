@@ -70,9 +70,9 @@
 .contact:hover {
   background-color: #3a7a8d;
 }
-.main-phonecall-icon{
-  margin-top:2px;
-  margin-right:3px;
+.main-phonecall-icon {
+  margin-top: 2px;
+  margin-right: 3px;
 }
 .arrow-img {
   position: absolute;
@@ -89,9 +89,9 @@
 }
 
 .banner-img {
-  width: 100%;   
-  height: 100%;  
-  object-fit: cover; 
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 .slick-dots {
@@ -114,4 +114,22 @@
 
 .slick-dots li.slick-active button:before {
   color: white;
+}
+
+.kakao-channel-btn {
+  position: fixed; /* 스크롤 시에도 고정 */
+  bottom: 40px; /* 하단에서 20px 위 */
+  right: 40px; /* 우측에서 20px 왼쪽 */
+  z-index: 1000;
+  transition: transform 0.3s ease-in-out;
+}
+
+.kakao-channel-btn:hover {
+  transform: scale(1.1);
+}
+
+.kakao-channel-btn img {
+  width: 60px;
+  height: 60px;
+  cursor: pointer;
 }
