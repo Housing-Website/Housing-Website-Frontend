@@ -16,7 +16,7 @@ function MainPage() {
   const navigate = useNavigate();
 
   const handleContactClick = () => {
-    navigate("/Counsel");
+    navigate("/상담신청");
   };
 
   const handlePhoneCall = () => {
@@ -24,7 +24,7 @@ function MainPage() {
   };
 
   const handleBusinessInfoClick = () => {
-    navigate("/business-info");
+    navigate("/사업정보");
   };
 
   const PreviousArrow = (props) => {

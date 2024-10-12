@@ -1,0 +1,56 @@
+.booking-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center; 
+  text-align: center; 
+  overflow-x: hidden;
+}
+
+.booking-sub-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: auto;
+  background-color: #48D1CC;
+}
+
+.booking-title {
+  color: white;
+  margin-top: 30px;
+}
+
+/*list 보여주는 부분*/
+.booking-list-container{
+  margin-top:20px;
+}
+.booking-sub-title{
+  font-size:1.5rem;
+  font-weight: bold;
+}
+.booking-table {
+  width: 100%;
+  border-collapse: collapse; 
+  margin-top: 20px;
+  overflow-x: auto; 
+  display: block; 
+}
+
+.booking-table th,
+.booking-table td {
+  border: 1px solid #ddd;
+  padding: 20px;
+  text-align: left;
+}
+
+.booking-table th {
+  background-color: #999;
+  color: white;
+}
+
+.booking-table tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+.booking-table tr:hover {
+  background-color: #ddd; 
+}
