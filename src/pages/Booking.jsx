@@ -5,8 +5,20 @@ import './styles/Booking.css';
 
 function Booking() {
   const [inquiries, setInquiries] = useState([]);
+  const [isLoggedIn, setIsLoggedIn] = useState(false); 
 
-  
+  const checkSession = async () => {
+    try {
+      const response = await axios.get(`${import.meta.env.VITE_API_URL}/session-check`, { withCredentials: true });
+      if (response.status === 200) {
+        setIsLoggedIn(true); 
+      }
+    } catch (error) {
+      setIsLoggedIn(false); 
+      console.error('세션 확인 오류:', error);
+    }
+  };
+
   const fetchInquiries = async () => {
     try {
       const response = await axios.get(`${import.meta.env.VITE_API_URL}/inquiries`);
@@ -15,7 +27,6 @@ function Booking() {
       console.error('데이터 가져오기 오류:', error);
     }
   };
-
 
   const handleDelete = async (id) => {
     const confirmDelete = window.confirm("정말로 삭제하시겠습니까?");
@@ -30,8 +41,18 @@ function Booking() {
   };
 
   useEffect(() => {
-    fetchInquiries();
+    checkSession();
   }, []);
+
+  useEffect(() => {
+    if (isLoggedIn) {
+      fetchInquiries();
+    }
+  }, [isLoggedIn]);
+
+  if (!isLoggedIn) {
+    return <div className="booking-container">접근할 수 있는 권한이 없습니다. 로그인을 해주세요.</div>;
+  }
 
   return (
     <div className="booking-container">
