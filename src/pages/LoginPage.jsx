@@ -1,22 +1,29 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom'; 
+import { useNavigate } from 'react-router-dom';
+import axios from 'axios'; 
 import "./styles/LoginPage.css";
 
-function LoginPage() {
+function LoginPage({ setIsLoggedIn }) { 
   const [id, setId] = useState('');
   const [password, setPassword] = useState('');
   const navigate = useNavigate(); 
 
-  const handleLoginClick = () => {
-    const adminId = 'vvip1526';
-    const adminPassword = 'kn58jsgd!';
+  const handleLoginClick = async () => {
+    try {
+      const response = await axios.post('http://localhost:8800/login', { 
+        username: id,
+        password: password,
+      });
 
-    if (id === adminId && password === adminPassword) {
-      navigate('/방문기록'); 
-    } else {
+      if (response.status === 200) {
+        setIsLoggedIn(true); 
+        navigate('/방문기록');
+      }
+    } catch (error) {
       alert('제대로 입력해주세요');
+      console.error('로그인 오류:', error.response ? error.response.data : error);
     }
-  }; //ㅠㅠ 이쪽 db...로 넣어줘야 하는데.. 걍 하드코딩함 ㅠㅠ ㅈㅅ으진..
+  };
 
   return (
     <div className="login-container">

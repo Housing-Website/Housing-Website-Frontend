@@ -1,4 +1,5 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { useState } from "react"; 
 import Header from "./components/common/Header";
 import Footer from "./components/common/Footer";
 import MainPage from "./pages/MainPage";
@@ -11,6 +12,8 @@ import LoginPage from "./pages/LoginPage";
 import Booking from "./pages/Booking"; 
 
 function App() {
+  const [isLoggedIn, setIsLoggedIn] = useState(false); 
+
   return (
     <BrowserRouter>
       <Header />
@@ -21,10 +24,10 @@ function App() {
         <Route path="/입지환경" element={<Location />} />
         <Route path="/커뮤니티" element={<Community />} />
         <Route path="/단지정보" element={<ApartmentInfo />} />
-        <Route path="/로그인페이지" element={<LoginPage />} />
+        <Route path="/로그인페이지" element={<LoginPage setIsLoggedIn={setIsLoggedIn} />} /> 
         <Route path="/방문기록" element={<Booking />} /> 
       </Routes>
-      <Footer />
+      <Footer isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} /> 
     </BrowserRouter>
   );
 }

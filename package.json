@@ -12,8 +12,13 @@
   },
   "dependencies": {
     "axios": "^1.7.7",
+    "cors": "^2.8.5",
     "dotenv": "^16.4.5",
+    "express": "^4.21.1",
+    "express-mysql-session": "^3.0.3",
+    "express-session": "^1.18.1",
     "framer-motion": "^11.11.8",
+    "mysql": "^2.18.1",
     "mysql2": "^3.11.3",
     "prop-types": "^15.8.1",
     "react": "^18.3.1",
@@ -35,5 +40,10 @@
     "eslint-plugin-react-refresh": "^0.4.12",
     "globals": "^15.9.0",
     "vite": "^5.4.8"
-  }
+  },
+  "description": "- **feat**: 새로운 기능 추가 및 개선 - **style**: 코드 포맷팅, 세미콜론 누락, 코드 변경이 없는 경우 - **design**: CSS 등 사용자 UI 디자인 변경 - **fix**: 기존 기능 수정 - **bug**: 버그 수정 - **refactor**: 결과의 변경 없이 코드의 구조를 재조정한 경우 - **test**: 테스트 코드 추가 - **docs**: 코드가 아닌 문서를 수정한 경우 - **remove**: 파일을 삭제하는 작업만 수행 - **rename**: 파일 또는 폴더명을 수정하거나 위치(경로)를 변경 - **asset**: 이미지 등 assets 파일 추가 - **chore**: 그 외 기타 수정",
+  "main": "eslint.config.js",
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
 }
