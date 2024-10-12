@@ -73,7 +73,7 @@ function MainPage() {
           <div className="image-container">
             <div className="overlay">
               <span className="second-comment">
-                프리미엄 워크스페이스에서 누리는 차별화된 업무 경험
+                프리미엄 워크스페이스에서 누리는 차별화된 경험
               </span>
               <span className="third-comment">“신광교 클라우드시티&quot;</span>
               <button className="contact" onClick={handlePhoneCall}>
