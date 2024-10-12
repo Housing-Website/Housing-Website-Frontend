@@ -10,11 +10,11 @@ function LoginPage({ setIsLoggedIn }) {
 
   const handleLoginClick = async () => {
     try {
-      const response = await axios.post('http://localhost:8800/login', { 
+      const response = await axios.post(`${import.meta.env.VITE_API_URL}/login`, { 
         username: id,
         password: password,
       });
-
+  
       if (response.status === 200) {
         setIsLoggedIn(true); 
         navigate('/방문기록');

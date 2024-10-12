@@ -1,7 +1,26 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 import './styles/Booking.css';
 
 function Booking() {
+
+  const [inquiries, setInquiries] = useState([]);
+
+ 
+  const fetchInquiries = async () => {
+    try {
+      const response = await axios.get(`${import.meta.env.VITE_API_URL}/inquiries`);
+      setInquiries(response.data);
+    } catch (error) {
+      console.error('데이터 가져오기 오류:', error);
+    }
+  };
+
+ 
+  useEffect(() => {
+    fetchInquiries();
+  }, []);
+
   return (
     <div className="booking-container">
       <div className="booking-sub-container">
@@ -18,7 +37,20 @@ function Booking() {
             </tr>
           </thead>
           <tbody>
-            {/*아직 없음*/}
+            {inquiries.length > 0 ? (
+              inquiries.map((inquiry, index) => (
+                <tr key={index}>
+                  <td>{inquiry.name}</td>
+                  <td>{inquiry.phone}</td>
+                  <td>{new Date(inquiry.visit_date).toLocaleDateString()}</td> {/* 날짜 포맷팅 */}
+                  <td>{inquiry.message}</td>
+                </tr>
+              ))
+            ) : (
+              <tr>
+                <td colSpan="4">데이터가 없습니다.</td>
+              </tr>
+            )}
           </tbody>
         </table>
       </div>
