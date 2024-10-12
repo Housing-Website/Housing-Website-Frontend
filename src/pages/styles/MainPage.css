@@ -47,6 +47,7 @@
   font-size: 2.5rem;
   font-weight: 600;
   margin-bottom: 1.3rem;
+  word-break: keep-all;
 }
 
 .third-comment {
@@ -70,10 +71,12 @@
 .contact:hover {
   background-color: #3a7a8d;
 }
+
 .main-phonecall-icon {
   margin-top: 2px;
   margin-right: 3px;
 }
+
 .arrow-img {
   position: absolute;
   bottom: 5%;
@@ -132,4 +135,97 @@
   width: 60px;
   height: 60px;
   cursor: pointer;
+}
+
+/* 반응형 스타일 */
+@media (max-width: 1024px) {
+  .custom-arrow {
+    font-size: 30px;
+  }
+
+  .custom-prev {
+    left: 15px;
+  }
+
+  .custom-next {
+    right: 15px;
+  }
+
+  .second-comment {
+    font-size: 2rem;
+  }
+
+  .third-comment {
+    font-size: 3rem;
+  }
+
+  .contact {
+    padding: 10px 20px;
+    font-size: 1.2rem;
+  }
+
+  .arrow-img {
+    width: 80px;
+  }
+
+  .kakao-channel-btn img {
+    width: 50px;
+    height: 50px;
+  }
+}
+
+@media (max-width: 768px) {
+  .second-comment {
+    font-size: 1.5rem;
+  }
+
+  .third-comment {
+    font-size: 2.5rem;
+  }
+
+  .contact {
+    padding: 8px 16px;
+    font-size: 1rem;
+  }
+
+  .arrow-img {
+    width: 60px;
+  }
+
+  .kakao-channel-btn {
+    bottom: 20px; 
+    right: 20px;
+  }
+
+  .kakao-channel-btn img {
+    width: 40px;
+    height: 40px;
+  }
+}
+
+@media (max-width: 480px) {
+  .custom-arrow {
+    font-size: 25px;
+  }
+
+  .second-comment {
+    font-size: 1.2rem;
+  }
+
+  .third-comment {
+    font-size: 2rem;
+  }
+
+  .contact {
+    padding: 6px 12px;
+    font-size: 0.9rem;
+  }
+
+  .arrow-img {
+    width: 50px;
+  }
+
+  .overlay {
+    top: 15%;
+  }
 }
