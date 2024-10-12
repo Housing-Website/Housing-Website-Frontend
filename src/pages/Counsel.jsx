@@ -10,6 +10,7 @@ function Counsel() {
   const [message, setMessage] = useState("");
   const [agreed, setAgreed] = useState(false);
   const [error, setError] = useState("");
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const nameRef = useRef(null);
   const phoneRef = useRef(null);
@@ -35,36 +36,44 @@ function Counsel() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    if (isSubmitting) return;
+    setIsSubmitting(true);
     setError("");
 
     if (!agreed) {
       alert("개인정보취급방침에 동의해야합니다.");
       agreementRef.current.focus();
+      setIsSubmitting(false);
       return;
     }
     if (!name) {
       setError("이름을 입력하세요.");
       nameRef.current.focus();
+      setIsSubmitting(false);
       return;
     }
     if (!phone) {
       setError("휴대폰번호를 입력하세요.");
       phoneRef.current.focus();
+      setIsSubmitting(false);
       return;
     }
     if (!validatePhone(phone)) {
       setError("올바른 휴대폰 번호 형식이 아닙니다. 예: 010-1234-5678");
       phoneRef.current.focus();
+      setIsSubmitting(false);
       return;
     }
     if (!visitDate) {
       setError("방문 날짜를 선택하세요.");
       visitDateRef.current.setFocus();
+      setIsSubmitting(false);
       return;
     }
     if (!message) {
       setError("문의 내용을 입력하세요.");
       messageRef.current.focus();
+      setIsSubmitting(false);
       return;
     }
 
@@ -82,8 +91,6 @@ function Counsel() {
         }),
       });
 
-      console.log("Fetch response:", response);
-
       if (response.ok) {
         alert("문의가 성공적으로 등록되었습니다.");
         setName("");
@@ -97,6 +104,8 @@ function Counsel() {
     } catch (error) {
       setError("서버 요청 중 오류가 발생했습니다.");
       console.error("Error during fetch:", error);
+    } finally {
+      setIsSubmitting(false);
     }
   };
 
@@ -127,7 +136,6 @@ function Counsel() {
         <label htmlFor="agreement">개인정보취급방침에 동의합니다.</label>
       </div>
       {error && <p className="error-message">{error}</p>}{" "}
-      {/* 에러 메시지 표시 */}
       <form onSubmit={handleSubmit} className="counsel-form">
         <div className="form-group">
           <label htmlFor="name">이름</label>
@@ -160,6 +168,7 @@ function Counsel() {
             placeholderText="날짜 선택"
             ref={visitDateRef}
             required
+            minDate={new Date()}
           />
         </div>
         <div className="form-group">
@@ -172,8 +181,8 @@ function Counsel() {
             required
           />
         </div>
-        <button type="submit" className="submit-btn">
-          등록하기
+        <button type="submit" className="submit-btn" disabled={isSubmitting}>
+          {isSubmitting ? "등록 중..." : "등록하기"}
         </button>
       </form>
     </div>
