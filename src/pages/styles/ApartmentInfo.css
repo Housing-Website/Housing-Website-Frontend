@@ -1,17 +1,116 @@
-.apt-container{
+.apt-container {
   display: flex;
-  flex-direction:column;
-  align-items: center; 
-  text-align: center; 
-}
-.apt-sub-container{
-  display:flex;
+  justify-content: center;
+  align-items: center;
   flex-direction: column;
-  width:100vw;
-  height:auto;
-  background-color:#3D3C3C;
+  padding: 20px;
 }
-.apt-title{
+
+.apt-sub-container {
+  width: 100%;
+  background-color: white;
+  border-radius: 10px;
+  padding: 20px;
+}
+
+.apt-title {
+  font-size: 24px;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.tab-menu {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+.tab-menu button {
+  padding: 20px 160px;
+  font-size: 16px;
+  border: none;
+  background-color: #e0e0e0;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+}
+
+.tab-menu .active-tab {
+  background-color: #2196f3;
   color: white;
-  margin-top:30px;
+}
+
+.tab-menu button:hover {
+  background-color: #b0bec5;
+}
+
+.tab-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.image-grid {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+}
+
+.image-grid img {
+  width: 80%;
+  height: auto;
+  border-radius: 10px;
+  object-fit: cover;
+}
+
+@media (max-width: 1024px) {
+  .apt-sub-container {
+    width: 90%;
+  }
+
+  .image-grid img {
+    width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  .apt-sub-container {
+    width: 95%;
+  }
+
+  .tab-menu {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .tab-menu button {
+    width: 100%;
+    text-align: center;
+  }
+
+  .image-grid img {
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .apt-sub-container {
+    width: 100%;
+  }
+
+  .apt-title {
+    font-size: 20px;
+  }
+
+  .tab-menu button {
+    font-size: 14px;
+    padding: 8px 16px;
+  }
+
+  .image-grid img {
+    width: 100%;
+  }
 }
