@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { useState } from "react"; 
 import Header from "./components/common/Header";
 import Footer from "./components/common/Footer";
@@ -25,7 +25,10 @@ function App() {
         <Route path="/커뮤니티" element={<Community />} />
         <Route path="/단지정보" element={<ApartmentInfo />} />
         <Route path="/로그인페이지" element={<LoginPage setIsLoggedIn={setIsLoggedIn} />} /> 
-        <Route path="/방문기록" element={<Booking />} /> 
+        <Route 
+          path="/방문기록" 
+          element={isLoggedIn ? <Booking /> : <Navigate to="/로그인페이지" />} 
+        />
       </Routes>
       <Footer isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} /> 
     </BrowserRouter>

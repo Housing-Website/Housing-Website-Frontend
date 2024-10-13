@@ -14,6 +14,8 @@ function Location() {
       <div className="location-map-container">
         <span className="location-highlight">
           <span className="location-keyword">역세권의 마지막 기회!</span>
+          <img src={location2} alt="community-img" className="community-img1" />
+          <img src={location1} alt="community-img2" className="community-img2" />
           <br />
           신광교 클라우드 시티, 더 가까이 더 빠르게 연결되는 삶을 누리세요.{" "}
           <br />
@@ -25,13 +27,9 @@ function Location() {
             <FaWalking />
             도보 : 흥덕역 15분
           </span>
+          <img src={location3} alt="community-img3" className="community-img3" />
+          <img src={location4} alt="community-img4" className="community-img4" />
         </span>
-        <img src={location2} alt="community-img" className="community-img1" />
-      </div>
-      <div className="community-info">
-        <img src={location1} alt="community-img2" className="community-img2" />
-        <img src={location3} alt="community-img3" className="community-img3" />
-        <img src={location4} alt="community-img4" className="community-img4" />
       </div>
     </div>
   );

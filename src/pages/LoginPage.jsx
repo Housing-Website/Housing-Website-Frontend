@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios'; 
 import "./styles/LoginPage.css";
@@ -8,15 +8,29 @@ function LoginPage({ setIsLoggedIn }) {
   const [password, setPassword] = useState('');
   const navigate = useNavigate(); 
 
+  useEffect(() => {
+    const loggedIn = sessionStorage.getItem('isLoggedIn');
+    if (loggedIn === 'true') {
+      setIsLoggedIn(true);
+      navigate('/방문기록');
+    }
+  }, [setIsLoggedIn, navigate]);
+
   const handleLoginClick = async () => {
+    if (!id || !password) {
+      alert('아이디와 비밀번호를 입력해주세요.');
+      return;
+    }
+
     try {
-      const response = await axios.post(`${import.meta.env.VITE_API_URL}/login`, { 
+      const response = await axios.post('http://localhost:8800/login', { 
         username: id,
         password: password,
       });
-  
+      
       if (response.status === 200) {
         setIsLoggedIn(true); 
+        sessionStorage.setItem('isLoggedIn', 'true'); 
         navigate('/방문기록');
       }
     } catch (error) {

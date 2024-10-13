@@ -1,5 +1,5 @@
 import "./style/Footer.css";
-import CloudCityLogo from "../../assets/images/CloudCityLogo.jpeg"; // 경로 수정
+import CloudCityLogo from "../../assets/images/CloudCityLogo.jpeg";
 import { useNavigate } from "react-router-dom";
 
 function Footer({ isLoggedIn, setIsLoggedIn }) { 
@@ -7,10 +7,12 @@ function Footer({ isLoggedIn, setIsLoggedIn }) {
 
   const handleLoginPage = () => {
     if (isLoggedIn) {
-      setIsLoggedIn(false); // 로그아웃 상태로 변경
-      navigate('/'); // 메인 페이지로 리디렉션
+      setIsLoggedIn(false); 
+      sessionStorage.clear(); 
+      alert('로그아웃 되었습니다.');
+      navigate('/'); 
     } else {
-      navigate('/로그인페이지'); // 로그인 페이지로 이동
+      navigate('/로그인페이지'); 
     }
   };
 
@@ -19,7 +21,7 @@ function Footer({ isLoggedIn, setIsLoggedIn }) {
       {/* 로고 이미지 추가 */}
       <div className="logo-container">
         <img
-          src={CloudCityLogo} // 임포트된 이미지 변수 사용
+          src={CloudCityLogo}
           alt="신광교 클라우드시티 로고"
           className="footer-logo"
         />
