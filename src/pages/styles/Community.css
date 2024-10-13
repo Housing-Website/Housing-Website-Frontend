@@ -23,8 +23,8 @@
 }
 .community-img{
   display: flex;
-  width: auto;
-  height: 500px;
+  width: 100%;
+  height: auto;
 }
 
 @media screen and (max-width: 768px) {
@@ -53,6 +53,7 @@
     text-align: center; 
   }
   .community-img {
+    width: 600px;
     height: 200px; 
   }
 }
