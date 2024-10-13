@@ -23,7 +23,7 @@ function LoginPage({ setIsLoggedIn }) {
     }
 
     try {
-      const response = await axios.post('http://localhost:8800/login', { 
+      const response = await axios.post(`${import.meta.env.VITE_API_URL}/login`,{
         username: id,
         password: password,
       });

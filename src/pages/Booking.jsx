@@ -8,19 +8,21 @@ function Booking() {
 
   const fetchInquiries = async () => {
     try {
-      const response = await axios.get('http://localhost:8800/inquiries');
+    
+      const response = await axios.get(`${import.meta.env.VITE_API_URL}/inquiries`);
       setInquiries(response.data);
     } catch (error) {
       console.error('데이터 가져오기 오류:', error);
     }
   };
-
+  
   const handleDelete = async (id) => {
     const confirmDelete = window.confirm("정말로 삭제하시겠습니까?");
     if (!confirmDelete) return; 
-
+  
     try {
-      await axios.delete(`http://localhost:8800/inquiries/${id}`);
+     
+      await axios.delete(`${import.meta.env.VITE_API_URL}/inquiries/${id}`);
       setInquiries(prevInquiries => prevInquiries.filter(inquiry => inquiry.id !== id));
     } catch (error) {
       console.error('삭제 오류:', error);
