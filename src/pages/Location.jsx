@@ -23,9 +23,9 @@ function Location() {
           <br />
           <span className="location-subway-description">
             <FaWalking />
-            도보 : 원천역 10분 <br />
+            도보 : 원천역 약 15분 <br />
             <FaWalking />
-            도보 : 흥덕역 15분
+            도보 : 흥덕역 약 15분
           </span>
           <img src={location3} alt="community-img3" className="community-img3" />
           <img src={location4} alt="community-img4" className="community-img4" />
