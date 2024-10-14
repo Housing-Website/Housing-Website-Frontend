@@ -39,7 +39,7 @@ function Counsel() {
     if (isSubmitting) return;
     setIsSubmitting(true);
     setError("");
-  
+
     if (!agreed) {
       alert("개인정보취급방침에 동의해야합니다.");
       agreementRef.current.focus();
@@ -76,8 +76,8 @@ function Counsel() {
       setIsSubmitting(false);
       return;
     }
-  
-  
+
+    console.log(import.meta.env.VITE_API_URL);
     try {
       const response = await fetch(`${import.meta.env.VITE_API_URL}/submit`, {
         method: "POST",
