@@ -88,7 +88,7 @@ const Counsel = () => {
             onChange={() => setIsAgreed(!isAgreed)}
           />
           <label htmlFor="agreement" className="agreement-label">
-            개인정보 수집·이용 및 제3자 제공에 동의합니다.
+            &nbsp;개인정보 수집·이용 및 제3자 제공에 동의합니다.
           </label>
         </div>
         <div className="form-group">
