@@ -79,6 +79,7 @@ function Counsel() {
 
     console.log(import.meta.env.VITE_API_URL);
     try {
+      console.log("test");
       const response = await fetch(`${import.meta.env.VITE_API_URL}/submit`, {
         method: "POST",
         headers: {
