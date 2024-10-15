@@ -11,6 +11,7 @@ import "./styles/MainPage.css";
 import { useNavigate } from "react-router-dom";
 import Counsel from "./Counsel";
 import kakaochanneltalk from "../assets/images/kakaochanneltalk.png";
+import cloudvideo from "../assets/video/cloudvideo.mp4";
 
 function MainPage() {
   const navigate = useNavigate();
@@ -119,7 +120,13 @@ function MainPage() {
         </Slider>
       </div>
 
-    
+      <div className="video-container">
+        <video controls autoPlay muted loop className="video-player">
+          <source src={cloudvideo} type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
+      </div>
+
       <div className="kakao-channel-btn">
         <img
           src={kakaochanneltalk}
