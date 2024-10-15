@@ -120,9 +120,9 @@
 }
 
 .kakao-channel-btn {
-  position: fixed; 
-  bottom: 40px; 
-  right: 40px; 
+  position: fixed;
+  bottom: 40px;
+  right: 40px;
   z-index: 1000;
   transition: transform 0.3s ease-in-out;
 }
@@ -193,7 +193,7 @@
   }
 
   .kakao-channel-btn {
-    bottom: 20px; 
+    bottom: 20px;
     right: 20px;
   }
 
@@ -228,4 +228,19 @@
   .overlay {
     top: 15%;
   }
+}
+
+.video-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100%;
+  margin-top: 5%;
+  background-color: white;
+}
+
+.video-player {
+  max-width: 100%;
+  height: auto;
 }
