@@ -1,81 +1,79 @@
-import React, { useState, useEffect } from 'react';
-import axios from 'axios';
-import { FaTrash } from 'react-icons/fa'; 
+import React, { useEffect, useState } from 'react';
+import { db } from '../firebase';
+import { collection, getDocs, deleteDoc, doc } from 'firebase/firestore';
+import { FaTrash } from 'react-icons/fa';
 import './styles/Booking.css';
 
-function Booking() {
+const Booking = () => {
   const [inquiries, setInquiries] = useState([]);
 
-  const fetchInquiries = async () => {
-    try {
-    
-      const response = await axios.get(`${import.meta.env.VITE_API_URL}/inquiries`);
-      setInquiries(response.data);
-    } catch (error) {
-      console.error('데이터 가져오기 오류:', error);
-    }
-  };
-  
-  const handleDelete = async (id) => {
-    const confirmDelete = window.confirm("정말로 삭제하시겠습니까?");
-    if (!confirmDelete) return; 
-  
-    try {
-     
-      await axios.delete(`${import.meta.env.VITE_API_URL}/inquiries/${id}`);
-      setInquiries(prevInquiries => prevInquiries.filter(inquiry => inquiry.id !== id));
-    } catch (error) {
-      console.error('삭제 오류:', error);
-    }
-  };
-
   useEffect(() => {
+    const fetchInquiries = async () => {
+      const inquiryCollection = collection(db, 'counsel_inquiries');
+      const inquirySnapshot = await getDocs(inquiryCollection);
+      const inquiryList = inquirySnapshot.docs.map((doc) => ({
+        id: doc.id,
+        ...doc.data(),
+      }));
+      setInquiries(inquiryList);
+    };
+
     fetchInquiries();
   }, []);
+
+  const handleDelete = async (id) => {
+    const inquiryDoc = doc(db, 'counsel_inquiries', id);
+    await deleteDoc(inquiryDoc);
+    setInquiries(inquiries.filter((inquiry) => inquiry.id !== id));
+  };
 
   return (
     <div className="booking-container">
       <div className="booking-sub-container">
-        <h2 className="booking-title">예약현황</h2>
+        <div className="booking-title">예약 문의 내역</div>
       </div>
-      <div className="booking-list-container">
-        <table className="booking-table">
-          <thead>
-            <tr>
-              <th>이름</th>
-              <th>전화번호</th>
-              <th>방문 날짜</th>
-              <th>메시지</th>
-              <th>삭제</th>
-            </tr>
-          </thead>
-          <tbody>
-            {Array.isArray(inquiries) && inquiries.length > 0 ? (
-              inquiries.map((inquiry) => (
-                <tr key={inquiry.id}>
-                  <td>{inquiry.name}</td>
-                  <td>{inquiry.phone}</td>
-                  <td>{new Date(inquiry.visit_date).toLocaleDateString()}</td>
-                  <td>{inquiry.message}</td>
-                  <td>
-                    <FaTrash 
-                      className="delete-icon" 
-                      onClick={() => handleDelete(inquiry.id)} 
-                      style={{ cursor: 'pointer', color: 'red' }} 
-                    />
-                  </td>
-                </tr>
-              ))
-            ) : (
+        <div className="booking-list-container">
+          <table className="booking-table">
+            <thead>
               <tr>
-                <td colSpan="5">데이터가 없습니다.</td>
+                <th>이름</th>
+                <th>전화번호</th>
+                <th>방문일</th>
+                <th>메시지</th>
+                <th>삭제</th>
               </tr>
-            )}
-          </tbody>
-        </table>
+            </thead>
+            <tbody>
+              {Array.isArray(inquiries) && inquiries.length > 0 ? (
+                inquiries.map((inquiry) => (
+                  <tr key={inquiry.id}>
+                    <td>{inquiry.name}</td>
+                    <td>{inquiry.phone}</td>
+                    <td>
+                      {inquiry.visitDate ? (
+                        new Date(inquiry.visitDate.seconds * 1000).toLocaleDateString()
+                      ) : (
+                        '날짜 없음'
+                      )}
+                    </td>
+                    <td>{inquiry.message}</td>
+                    <td>
+                      <button className="delete-btn" onClick={() => handleDelete(inquiry.id)}>
+                        <FaTrash className="delete-icon" />
+                      </button>
+                    </td>
+                  </tr>
+                ))
+              ) : (
+                <tr>
+                  <td colSpan="5">등록된 문의가 없습니다.</td>
+                </tr>
+              )}
+            </tbody>
+          </table>
+        </div>
       </div>
-    </div>
   );
-}
+};
 
 export default Booking;

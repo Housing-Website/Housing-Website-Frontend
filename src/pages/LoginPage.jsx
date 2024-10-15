@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import axios from 'axios'; 
+import app from '../firebase';
+import { getAuth, signInWithEmailAndPassword } from 'firebase/auth';
 import "./styles/LoginPage.css";
 
 function LoginPage({ setIsLoggedIn }) { 
@@ -22,20 +23,18 @@ function LoginPage({ setIsLoggedIn }) {
       return;
     }
 
+    const auth = getAuth(app); 
+
     try {
-      const response = await axios.post(`${import.meta.env.VITE_API_URL}/login`,{
-        username: id,
-        password: password,
-      });
-      
-      if (response.status === 200) {
-        setIsLoggedIn(true); 
-        sessionStorage.setItem('isLoggedIn', 'true'); 
-        navigate('/방문기록');
-      }
+      const userCredential = await signInWithEmailAndPassword(auth, id, password);
+      const user = userCredential.user;
+      console.log("로그인 성공:", user);
+      setIsLoggedIn(true); 
+      sessionStorage.setItem('isLoggedIn', 'true'); 
+      navigate('/방문기록');
     } catch (error) {
       alert('제대로 입력해주세요');
-      console.error('로그인 오류:', error.response ? error.response.data : error);
+      console.error('로그인 오류:', error);
     }
   };
 
