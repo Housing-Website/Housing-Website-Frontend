@@ -3,29 +3,25 @@
   flex-direction: column;
   align-items: center; 
   text-align: center; 
-  overflow-x: hidden;
 }
 
 .booking-sub-container {
   display: flex;
   flex-direction: column;
   width: 100%;
-  height: auto;
+  height: 70px;
   background-color: #48D1CC;
 }
 
 .booking-title {
   color: white;
-  margin-top: 30px;
+  font-weight: bold;
+  font-size:25px;
+  margin-top:22px;
 }
 
 .booking-list-container {
   margin-top: 20px;
-}
-
-.booking-sub-title {
-  font-size: 1.5rem;
-  font-weight: bold;
 }
 
 .booking-table {
