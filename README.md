@@ -2,10 +2,10 @@
 
 🔗 [신광교 클라우드 시티로 이동하기](https://www.cloudcitygwanggyo.com/)
 
-### 개발 기간 🔧
+### 🔧 개발 기간 
 <span style="font-size: 10px; font-weight: bold;">2024.10.10 ~ 2024.10.17</span>
 
-### 개발 환경 및 기술 스택 🔨
+### 🔨 개발 환경 및 기술 스택 
 <img src="https://img.shields.io/badge/figma-F24E1E.svg?style=for-the-badge&logo=figma&logoColor=white" /> <img src="https://img.shields.io/badge/Visual_Studio_Code-007ACC.svg?style=for-the-badge&logo=visual-studio-code&logoColor=white" />
  <img src="https://img.shields.io/badge/github-181717.svg?style=for-the-badge&logo=github&logoColor=white" />
 
@@ -18,7 +18,7 @@
 
 
 
-### git convention 🎉
+### 🎉 git convention 
 
 - **feat**: 새로운 기능 추가 및 개선
 - **style**: 코드 포맷팅, 세미콜론 누락, 코드 변경이 없는 경우
