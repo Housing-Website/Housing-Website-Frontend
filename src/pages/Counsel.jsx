@@ -1,47 +1,47 @@
-import React, { useState } from 'react';
-import { db } from '../firebase';
-import { collection, addDoc, Timestamp } from 'firebase/firestore';
-import './styles/Counsel.css';
+import { useState } from "react";
+import { db } from "../firebase";
+import { collection, addDoc, Timestamp } from "firebase/firestore";
+import "./styles/Counsel.css";
 
 const Counsel = () => {
-  const [name, setName] = useState('');
-  const [phone, setPhone] = useState('');
+  const [name, setName] = useState("");
+  const [phone, setPhone] = useState("");
   const [visitDate, setVisitDate] = useState(new Date());
-  const [message, setMessage] = useState('');
+  const [message, setMessage] = useState("");
   const [isAgreed, setIsAgreed] = useState(false);
 
   const handlePhoneChange = (e) => {
-    const input = e.target.value.replace(/[^0-9]/g, ''); // 숫자 이외의 문자 제거함
-    let formatted = '';
+    const input = e.target.value.replace(/[^0-9]/g, ""); // 숫자 이외의 문자 제거함
+    let formatted = "";
 
     if (input.length > 0) {
       formatted += input.slice(0, 3);
     }
     if (input.length >= 4) {
-      formatted += '-' + input.slice(3, 7);
+      formatted += "-" + input.slice(3, 7);
     }
     if (input.length >= 8) {
-      formatted += '-' + input.slice(7, 11); 
+      formatted += "-" + input.slice(7, 11);
     }
-  
-    setPhone(formatted); 
+
+    setPhone(formatted);
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (!isAgreed) {
-      alert('개인정보 수집·이용 및 제3자 제공에 동의해야 합니다.');
+      alert("개인정보 수집·이용 및 제3자 제공에 동의해야 합니다.");
       return;
     }
 
     const phoneRegex = /^(010-\d{4}-\d{4})$/; // 전화번호 형식 체크
     if (!phoneRegex.test(phone)) {
-      alert('올바른 휴대폰 번호 형식을 입력하세요 (예: 010-1111-1111)');
+      alert("올바른 휴대폰 번호 형식을 입력하세요 (예: 010-1111-1111)");
       return;
     }
 
     try {
-      await addDoc(collection(db, 'counsel_inquiries'), {
+      await addDoc(collection(db, "counsel_inquiries"), {
         name,
         phone,
         visitDate: Timestamp.fromDate(visitDate),
@@ -49,22 +49,24 @@ const Counsel = () => {
         created_at: Timestamp.now(),
       });
 
-      alert('문의가 성공적으로 등록되었습니다!'); 
-      setName('');
-      setPhone('');
+      alert("문의가 성공적으로 등록되었습니다!");
+      setName("");
+      setPhone("");
       setVisitDate(new Date());
-      setMessage('');
+      setMessage("");
       setIsAgreed(false);
     } catch (error) {
-      console.error('Error adding document: ', error);
-      alert('문의 등록에 실패했습니다. 다시 시도해 주세요.'); 
+      console.error("Error adding document: ", error);
+      alert("문의 등록에 실패했습니다. 다시 시도해 주세요.");
     }
   };
 
   return (
     <div className="counsel-container">
       <form className="counsel-form" onSubmit={handleSubmit}>
-        <h2 className='counsel-agreement-title'>개인정보 수집·이용 동의 및 제3자 제공 동의</h2>
+        <h2 className="counsel-agreement-title">
+          개인정보 수집·이용 동의 및 제3자 제공 동의
+        </h2>
         <p>
           수집하는 개인정보의 목적 및 항목
           <br />
@@ -86,7 +88,7 @@ const Counsel = () => {
             onChange={() => setIsAgreed(!isAgreed)}
           />
           <label htmlFor="agreement" className="agreement-label">
-            개인정보 수집·이용 및 제3자 제공에 동의합니다.
+            &nbsp;개인정보 수집·이용 및 제3자 제공에 동의합니다.
           </label>
         </div>
         <div className="form-group">
@@ -105,21 +107,21 @@ const Counsel = () => {
             id="phone"
             type="tel"
             value={phone}
-            onChange={handlePhoneChange} 
-            placeholder="010-1111-1111" 
+            onChange={handlePhoneChange}
+            placeholder="010-1111-1111"
             required
           />
         </div>
         <div className="form-group">
           <label htmlFor="visitDate">방문 날짜</label>
           <input
-          id="visitDate"
-          type="date"
-          value={visitDate.toISOString().slice(0, 10)}
-          onChange={(e) => setVisitDate(new Date(e.target.value))}
-          min={new Date().toISOString().slice(0, 10)} 
-          required
-        />
+            id="visitDate"
+            type="date"
+            value={visitDate.toISOString().slice(0, 10)}
+            onChange={(e) => setVisitDate(new Date(e.target.value))}
+            min={new Date().toISOString().slice(0, 10)}
+            required
+          />
         </div>
         <div className="form-group">
           <label htmlFor="message">메시지</label>
@@ -130,7 +132,9 @@ const Counsel = () => {
             required
           />
         </div>
-        <button type="submit" className="submit-btn">문의하기</button>
+        <button type="submit" className="submit-btn">
+          문의하기
+        </button>
       </form>
     </div>
   );
