@@ -21,9 +21,14 @@
   margin-top: 10px; 
   width: 100%;
 }
+.community-info{
+  display:flex;
+  flex-direction:column;
+}
 .community-img{
   display: flex;
-  width: 100%;
+  width: 90%;
+  margin-top:50px;
   height: auto;
 }
 
