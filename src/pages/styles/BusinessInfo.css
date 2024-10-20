@@ -35,16 +35,16 @@
 
 .business-section1 {
   display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
+  flex-direction: row; 
   justify-content: center; 
 }
 
 .business1-img {
   display: flex;
-  width: 800px;
+  width: 630px;
   height: auto;
-  margin: 30px auto;
+  margin-right:20px;
+  margin-top:50px;
   transition: transform 0.3s ease;
 }
 
@@ -67,8 +67,8 @@
 }
 
 .business-section2-title {
-  font-size: 30px;
-  margin-top: 10px;
+  font-size: 40px;
+  margin-top: 80px;
   font-weight: bold;
   color: #4FA696;
 }
