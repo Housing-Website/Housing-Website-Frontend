@@ -1,4 +1,5 @@
 import community1 from "../assets/images/community1.png";
+import community2 from "../assets/images/community2.png";
 import "./styles/Community.css";
 
 function Community() {

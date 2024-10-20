@@ -21,10 +21,20 @@
   margin-top: 10px; 
   width: 100%;
 }
+.community-info{
+  display:flex;
+  flex-direction:column;
+}
+.community-about{
+  font-size: 40px;
+  margin-top:30px;
+  margin-bottom:40px;
+}
 .community-img{
   display: flex;
-  width: 100%;
+  width: 90%;
   height: auto;
+  margin-bottom:30px;
 }
 
 @media screen and (max-width: 768px) {
