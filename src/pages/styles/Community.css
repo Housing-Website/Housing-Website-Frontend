@@ -38,6 +38,9 @@
   .community-img {
     height: 300px; 
   }
+  .community-about{
+    font-size:20px;
+  }
 }
 
 @media screen and (max-width: 375px) {
@@ -55,6 +58,9 @@
   .community-img {
     width: 600px;
     height: 200px; 
+  }
+  .community-about{
+    font-size:15px;
   }
 }
 

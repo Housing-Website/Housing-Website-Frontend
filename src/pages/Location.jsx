@@ -1,7 +1,8 @@
 import location1 from "../assets/images/location1.png";
 import location2 from "../assets/images/location2.png";
 import location3 from "../assets/images/location3.png";
-import location4 from "../assets/images/location4.png";
+import location5 from "../assets/images/location5.png";
+import location6 from "../assets/images/location6.png";
 import "./styles/Location.css";
 import { FaWalking } from "react-icons/fa";
 
@@ -28,7 +29,8 @@ function Location() {
             도보 : 흥덕역 약 15분
           </span>
           <img src={location3} alt="community-img3" className="community-img3" />
-          <img src={location4} alt="community-img4" className="community-img4" />
+          <img src={location5} alt="community-img5" className="community-img4" />
+          <img src={location6} alt="community-img6" className="community-img3" />
         </span>
       </div>
     </div>
