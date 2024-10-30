@@ -33,7 +33,7 @@ function Footer({ isLoggedIn, setIsLoggedIn }) {
         <span className="footer-infos">
           위치 : 용인시 기흥구 영덕동 784번지
         </span>
-        <span className="footer-infos">Tel : 1533 - 8389</span>
+        <span className="footer-infos">Tel : 1800 - 4177</span>
         <div className="footer-company-info">
           <span className="footer-company-infos">
             상호명 : 신광교클라우드시티(대표) <br />
