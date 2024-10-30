@@ -21,7 +21,7 @@ function MainPage() {
   };
 
   const handlePhoneCall = () => {
-    window.location.href = "tel:1533-8389";
+    window.location.href = "tel:1800-4177";
   };
 
   const handleBusinessInfoClick = () => {
@@ -78,7 +78,7 @@ function MainPage() {
               </span>
               <span className="third-comment">“신광교 클라우드시티&quot;</span>
               <button className="contact" onClick={handlePhoneCall}>
-                1533-8389
+                1800-4177
               </button>
             </div>
             <img src={banner} alt="banner img" className="banner-img visible" />
