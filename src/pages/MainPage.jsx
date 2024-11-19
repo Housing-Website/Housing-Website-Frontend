@@ -11,7 +11,7 @@ import "./styles/MainPage.css";
 import { useNavigate } from "react-router-dom";
 import Counsel from "./Counsel";
 import kakaochanneltalk from "../assets/images/kakaochanneltalk.png";
-import cloudvideo from "../assets/video/cloudvideo.mp4";
+import cloudvideo from "../assets/video/분양.mp4";
 
 function MainPage() {
   const navigate = useNavigate();
@@ -69,6 +69,13 @@ function MainPage() {
 
   return (
     <>
+      <div
+        className="GifContainer"
+        onClick={() => (window.location.href = "tel:1800-4177")}
+      >
+        <img src="/images/banner.gif" alt="Promotional GIF" />
+      </div>
+
       <div>
         <Slider {...settings}>
           <div className="image-container">
