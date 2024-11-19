@@ -6,7 +6,7 @@ import { useNavigate } from "react-router-dom";
 function Footer({ isLoggedIn, setIsLoggedIn }) {
   const navigate = useNavigate();
 
-  const handleLoginPage = () => {
+  const handleLoginPages = () => {
     if (isLoggedIn) {
       setIsLoggedIn(false);
       sessionStorage.clear();
@@ -25,7 +25,7 @@ function Footer({ isLoggedIn, setIsLoggedIn }) {
           alt="신광교 클라우드시티 로고"
           className="footer-logo"
         />
-        <button className="footer-login-btn" onClick={handleLoginPage}>
+        <button className="footer-login-btn" onClick={handleLoginPages}>
           {isLoggedIn ? "로그아웃" : "관리자 로그인"}
         </button>
       </div>
