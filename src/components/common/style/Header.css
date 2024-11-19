@@ -117,7 +117,7 @@ body {
   color: white;
   cursor: pointer;
   font-size: 15px;
-  transition: background-color 0.3s ease;
+  transition: background-color 0.2s ease;
 }
 
 .overlay button:hover {
