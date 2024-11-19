@@ -36,7 +36,7 @@ function Footer({ isLoggedIn, setIsLoggedIn }) {
         <span className="footer-infos">Tel : 1800 - 4177</span>
         <div className="footer-company-info">
           <span className="footer-company-infos">
-            상호명 : 신광교클라우드시티(대표) <br />
+            상호명 : 신광교클라우드시티 <br />
             ©2024 All Rights Reserved.
           </span>
           <span className="footer-disclaimer">
