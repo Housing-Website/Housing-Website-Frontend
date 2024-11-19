@@ -128,7 +128,7 @@ function MainPage() {
       </div>
 
       <div className="video-container">
-        <video controls autoPlay muted loop className="video-player">
+        <video controls muted loop className="video-player">
           <source src={cloudvideo} type="video/mp4" />
           Your browser does not support the video tag.
         </video>
