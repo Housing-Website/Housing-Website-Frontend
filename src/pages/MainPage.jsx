@@ -1,32 +1,31 @@
+import { useRef, useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import banner from "../../src/assets/images/banner.png";
 import banner2 from "../assets/images/banner2.png";
 import banner3 from "../assets/images/banner3.png";
-import bannerGif from "../assets/video/banner2.gif"; // 새로운 배너 GIF 이미지
-import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
-import PropTypes from "prop-types";
-import "../components/common/style/Header.css";
-import "./styles/MainPage.css";
-import { useNavigate } from "react-router-dom";
-import { useRef, useEffect } from "react";
-import Counsel from "./Counsel";
+import bannerGif from "../assets/video/banner2.gif";
 import kakaochanneltalk from "../assets/images/kakaochanneltalk.png";
 import cloudvideo from "../assets/video/분양.mp4";
+import Counsel from "./Counsel";
+import "./styles/MainPage.css";
 
 function MainPage() {
   const navigate = useNavigate();
   const videoRef = useRef(null); // 비디오 요소 참조
+  const [isPlayed, setIsPlayed] = useState(false); // 자동 재생 여부 관리
+  const [isPaused, setIsPaused] = useState(true); // 비디오 상태 관리
 
   // 스크롤에 따라 비디오 자동 재생 감지
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
-        if (entry.isIntersecting) {
+        if (entry.isIntersecting && !isPlayed) {
           videoRef.current.play(); // 비디오가 뷰포트에 들어오면 재생
-        } else {
-          videoRef.current.pause(); // 비디오가 뷰포트를 벗어나면 정지
+          setIsPlayed(true); // 자동 재생은 한 번만
+          setIsPaused(false); // 비디오 상태 변경
         }
       },
       { threshold: 0.5 } // 비디오 요소가 50% 이상 보일 때 동작
@@ -41,7 +40,17 @@ function MainPage() {
         observer.unobserve(videoRef.current);
       }
     };
-  }, []);
+  }, [isPlayed]);
+
+  // 비디오 클릭 이벤트 처리
+  const togglePlayPause = () => {
+    if (isPaused) {
+      videoRef.current.play();
+    } else {
+      videoRef.current.pause();
+    }
+    setIsPaused(!isPaused);
+  };
 
   const handleContactClick = () => {
     navigate("/상담신청");
@@ -55,32 +64,6 @@ function MainPage() {
     navigate("/사업정보");
   };
 
-  const PreviousArrow = (props) => {
-    const { onClick } = props;
-    return (
-      <div className="custom-arrow custom-prev" onClick={onClick}>
-        <IoIosArrowBack />
-      </div>
-    );
-  };
-
-  const NextArrow = (props) => {
-    const { onClick } = props;
-    return (
-      <div className="custom-arrow custom-next" onClick={onClick}>
-        <IoIosArrowForward />
-      </div>
-    );
-  };
-
-  PreviousArrow.propTypes = {
-    onClick: PropTypes.func,
-  };
-
-  NextArrow.propTypes = {
-    onClick: PropTypes.func,
-  };
-
   const settings = {
     dots: true,
     infinite: true,
@@ -89,9 +72,6 @@ function MainPage() {
     slidesToScroll: 1,
     autoplay: true,
     autoplaySpeed: 3000,
-    prevArrow: <PreviousArrow />,
-    nextArrow: <NextArrow />,
-    arrows: true,
   };
 
   return (
@@ -154,27 +134,13 @@ function MainPage() {
         </Slider>
       </div>
 
-      <div className="video-container">
-        <video
-          ref={videoRef} // 비디오 요소 참조 추가
-          muted
-          loop
-          className="video-player"
-        >
+      <div className="video-container" onClick={togglePlayPause}>
+        <video ref={videoRef} muted loop className="video-player">
           <source src={cloudvideo} type="video/mp4" />
           Your browser does not support the video tag.
         </video>
       </div>
 
-      <div className="image-banner-container">
-        <img
-          src="/src/assets/images/addimage.jpeg" /* 경로를 실제 이미지 경로로 교체 */
-          alt="Additional Banner"
-          className="image-banner"
-        />
-      </div>
-
-      {/* 추가된 banner2.gif */}
       <div className="gif-banner-container">
         <img
           src={bannerGif}
