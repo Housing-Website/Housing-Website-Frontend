@@ -4,17 +4,44 @@ import "slick-carousel/slick/slick-theme.css";
 import banner from "../../src/assets/images/banner.png";
 import banner2 from "../assets/images/banner2.png";
 import banner3 from "../assets/images/banner3.png";
+import bannerGif from "../assets/video/banner2.gif"; // 새로운 배너 GIF 이미지
 import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
 import PropTypes from "prop-types";
 import "../components/common/style/Header.css";
 import "./styles/MainPage.css";
 import { useNavigate } from "react-router-dom";
+import { useRef, useEffect } from "react";
 import Counsel from "./Counsel";
 import kakaochanneltalk from "../assets/images/kakaochanneltalk.png";
 import cloudvideo from "../assets/video/분양.mp4";
 
 function MainPage() {
   const navigate = useNavigate();
+  const videoRef = useRef(null); // 비디오 요소 참조
+
+  // 스크롤에 따라 비디오 자동 재생 감지
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          videoRef.current.play(); // 비디오가 뷰포트에 들어오면 재생
+        } else {
+          videoRef.current.pause(); // 비디오가 뷰포트를 벗어나면 정지
+        }
+      },
+      { threshold: 0.5 } // 비디오 요소가 50% 이상 보일 때 동작
+    );
+
+    if (videoRef.current) {
+      observer.observe(videoRef.current);
+    }
+
+    return () => {
+      if (videoRef.current) {
+        observer.unobserve(videoRef.current);
+      }
+    };
+  }, []);
 
   const handleContactClick = () => {
     navigate("/상담신청");
@@ -128,10 +155,32 @@ function MainPage() {
       </div>
 
       <div className="video-container">
-        <video controls muted loop className="video-player">
+        <video
+          ref={videoRef} // 비디오 요소 참조 추가
+          muted
+          loop
+          className="video-player"
+        >
           <source src={cloudvideo} type="video/mp4" />
           Your browser does not support the video tag.
         </video>
+      </div>
+
+      <div className="image-banner-container">
+        <img
+          src="/src/assets/images/addimage.jpeg" /* 경로를 실제 이미지 경로로 교체 */
+          alt="Additional Banner"
+          className="image-banner"
+        />
+      </div>
+
+      {/* 추가된 banner2.gif */}
+      <div className="gif-banner-container">
+        <img
+          src={bannerGif}
+          alt="Promotional Banner 2"
+          className="gif-banner"
+        />
       </div>
 
       <div className="kakao-channel-btn">
