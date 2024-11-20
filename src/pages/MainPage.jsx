@@ -168,7 +168,7 @@ function MainPage() {
 
       <div className="image-banner-container">
         <img
-          src="/src/assets/images/addimage.jpeg" /* 경로를 실제 이미지 경로로 교체 */
+          src="/src/assets/images/addimage1.jpeg" /* 경로를 실제 이미지 경로로 교체 */
           alt="Additional Banner"
           className="image-banner"
         />
