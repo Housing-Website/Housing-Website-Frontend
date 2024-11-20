@@ -270,7 +270,7 @@
   img {
     width: 100%;
     max-width: 1200px; /* 최대 너비 제한 */
-
+    margin-left: 3%;
     height: auto; /* 비율을 유지하며 크기 조정 */
     transition: transform 0.3s ease; /* 클릭 시 애니메이션 효과 */
   }
@@ -304,6 +304,7 @@
   display: flex;
   justify-content: center;
   margin-bottom: 10px;
+  margin-left: 7%;
 
   cursor: pointer; /* 클릭 가능한 요소로 설정 */
 
