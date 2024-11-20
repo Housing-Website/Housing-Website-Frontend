@@ -291,3 +291,57 @@
     }
   }
 }
+
+.gif-banner-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 10px;
+  cursor: pointer; /* 클릭 가능한 요소로 설정 */
+
+  img {
+    width: 100%;
+    max-width: 1200px; /* 최대 너비 제한 */
+    height: auto; /* 비율을 유지하며 크기 조정 */
+    transition: transform 0.3s ease; /* 클릭 시 애니메이션 효과 */
+  }
+
+  img:hover {
+    transform: scale(1.05); /* 마우스 오버 시 확대 효과 */
+  }
+
+  /* 반응형 스타일 */
+  @media (max-width: 1024px) {
+    img {
+      max-width: 900px; /* 태블릿에서 크기 조정 */
+    }
+  }
+
+  @media (max-width: 768px) {
+    img {
+      max-width: 600px; /* 모바일에서 크기 조정 */
+    }
+  }
+
+  @media (max-width: 480px) {
+    img {
+      max-width: 100%; /* 작은 화면에서 너비를 화면 전체로 설정 */
+    }
+  }
+}
+
+.image-banner-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin: 20px 0; /* 위아래 간격 */
+}
+
+.image-banner {
+  width: 90%; /* 화면 너비의 90% */
+  max-width: 1200px; /* 최대 너비를 제한 */
+  height: auto; /* 높이를 비율에 맞게 조정 */
+  border-radius: 10px; /* 이미지의 모서리를 둥글게 */
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* 이미지에 그림자 추가 */
+  object-fit: cover; /* 이미지 비율 유지 */
+}
